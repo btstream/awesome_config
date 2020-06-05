@@ -203,14 +203,14 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create system tray
     s.tray = wibox.widget.systray()
     s.tray:set_base_size(22)
-    s.systray = wibox.container.margin(s.tray,0,0,2,0)
+    s.systray = wibox.container.margin(s.tray,2,2,2,0)
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
+            wibox.container.margin(mylauncher,4,4,4,4),
             s.mytaglist,
             s.mypromptbox,
         },
@@ -221,7 +221,7 @@ awful.screen.connect_for_each_screen(function(s)
             -- wibox.widget.systray(),
             s.systray,
             mytextclock,
-            s.mylayoutbox,
+            wibox.container.margin(s.mylayoutbox,6,6,6,6)
         },
     }
 end)
@@ -534,6 +534,10 @@ client.connect_signal("manage", function (c)
         -- Prevent clients from being unreachable after screen count changes.
         awful.placement.no_offscreen(c)
     end
+
+    c.shape = function(cr,w,h)
+        gears.shape.rounded_rect(cr,w,h,8)
+    end
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
@@ -550,20 +554,28 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    awful.titlebar(c) : setup {
+    awful.titlebar(c, {size=22}) : setup {
         -- { -- Left
         --     awful.titlebar.widget.iconwidget(c),
         --     buttons = buttons,
         --     layout  = wibox.layout.fixed.horizontal
         -- },
-        { -- Right
-            awful.titlebar.widget.closebutton    (c),
-            awful.titlebar.widget.minimizebutton (c),
-            -- awful.titlebar.widget.floatingbutton (c),
-            awful.titlebar.widget.maximizedbutton(c),
-            -- awful.titlebar.widget.stickybutton   (c),
-            -- awful.titlebar.widget.ontopbutton    (c),
-            layout = wibox.layout.fixed.horizontal()
+        --{ -- Right
+        --    {
+        --        awful.titlebar.widget.closebutton    (c),
+        --        awful.titlebar.widget.minimizebutton (c),
+        --        -- awful.titlebar.widget.floatingbutton (c),
+        --        awful.titlebar.widget.maximizedbutton(c),
+        --        --awful.titlebar.widget.stickybutton   (c),
+        --        -- awful.titlebar.widget.ontopbutton    (c),
+        --        layout = wibox.layout.fixed.horizontal(),
+        --        spacing = -8,
+        --    },
+        --    margins = 2,
+        --    widget = wibox.container.margin,            
+        --},
+        {
+            widget = wibox.container.margin
         },
         { -- Middle
             { -- Title
@@ -572,6 +584,9 @@ client.connect_signal("request::titlebars", function(c)
             },
             buttons = buttons,
             layout  = wibox.layout.flex.horizontal
+        },
+        {
+            widget = wibox.container.margin
         },
         layout = wibox.layout.align.horizontal
     }

@@ -14,6 +14,7 @@ theme.wallpaper = themes_path .. "material_darker/background.png"
 
 -- {{{ Styles
 theme.font      = "CaskaydiaCove Nerd Font Mono 10"
+-- theme.font       = "sans 10"
 
 -- {{{ Colors
 theme.fg_normal  = "#eeffff"
@@ -26,11 +27,11 @@ theme.bg_systray = theme.bg_normal
 -- }}}
 
 -- {{{ Borders
-theme.useless_gap   = dpi(2)
+theme.useless_gap   = dpi(5)
 theme.gap_single_client = false
 theme.border_width  = dpi(2)
 theme.border_normal = "#212121"
-theme.border_focus  = "#4a4a4a"
+theme.border_focus  = "#82aaff"
 theme.border_marked = "#82aaff"
 -- }}}
 
@@ -46,6 +47,7 @@ theme.titlebar_bg_normal = "#212121"
 -- titlebar_[normal|focus]
 -- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
 -- Example:
+theme.taglist_fg_focus = "#82aaff"
 theme.taglist_bg_focus = "#4a4a4a"
 -- }}}
 
@@ -81,7 +83,7 @@ theme.taglist_squares_unsel = themes_path .. "material_darker/taglist/squarez.pn
 -- }}}
 
 -- {{{ Misc
-theme.awesome_icon           = themes_path .. "material_darker/awesome-icon.png"
+theme.awesome_icon           = themes_path .. "material_darker/start-menu.svg"
 theme.menu_submenu_icon      = themes_path .. "default/submenu.png"
 -- }}}
 
@@ -105,31 +107,31 @@ theme.layout_cornerse   = themes_path .. "material_darker/layouts/cornerse.png"
 -- }}}
 
 -- {{{ Titlebar
-theme.titlebar_close_button_focus  = themes_path .. "material_darker/titlebar/close_focus.png"
-theme.titlebar_close_button_normal = themes_path .. "material_darker/titlebar/close_normal.png"
+theme.titlebar_close_button_focus  = themes_path .. "material_darker/titlebar/win10/close_focus.svg"
+theme.titlebar_close_button_normal = themes_path .. "material_darker/titlebar/win10/close_normal.svg"
 
-theme.titlebar_minimize_button_normal = themes_path .. "default/titlebar/minimize_normal.png"
-theme.titlebar_minimize_button_focus  = themes_path .. "default/titlebar/minimize_focus.png"
+theme.titlebar_minimize_button_normal = themes_path .. "material_darker/titlebar/win10/minimize_normal.svg"
+theme.titlebar_minimize_button_focus  = themes_path .. "material_darker/titlebar/win10/minimize_focus.svg"
 
-theme.titlebar_ontop_button_focus_active  = themes_path .. "material_darker/titlebar/ontop_focus_active.png"
-theme.titlebar_ontop_button_normal_active = themes_path .. "material_darker/titlebar/ontop_normal_active.png"
-theme.titlebar_ontop_button_focus_inactive  = themes_path .. "material_darker/titlebar/ontop_focus_inactive.png"
-theme.titlebar_ontop_button_normal_inactive = themes_path .. "material_darker/titlebar/ontop_normal_inactive.png"
+theme.titlebar_ontop_button_focus_active  = themes_path .. "material_darker/titlebar/win10/ontop_focus_active.svg"
+theme.titlebar_ontop_button_normal_active = themes_path .. "material_darker/titlebar/win10/ontop_normal_active.svg"
+theme.titlebar_ontop_button_focus_inactive  = themes_path .. "material_darker/titlebar/win10/ontop_focus_inactive.svg"
+theme.titlebar_ontop_button_normal_inactive = themes_path .. "material_darker/titlebar/win10/ontop_normal_inactive.svg"
 
-theme.titlebar_sticky_button_focus_active  = themes_path .. "material_darker/titlebar/sticky_focus_active.png"
-theme.titlebar_sticky_button_normal_active = themes_path .. "material_darker/titlebar/sticky_normal_active.png"
-theme.titlebar_sticky_button_focus_inactive  = themes_path .. "material_darker/titlebar/sticky_focus_inactive.png"
-theme.titlebar_sticky_button_normal_inactive = themes_path .. "material_darker/titlebar/sticky_normal_inactive.png"
+theme.titlebar_sticky_button_focus_active  = themes_path .. "material_darker/titlebar/win10/sticky_focus_active.svg"
+theme.titlebar_sticky_button_normal_active = themes_path .. "material_darker/titlebar/win10/sticky_normal_active.svg"
+theme.titlebar_sticky_button_focus_inactive  = themes_path .. "material_darker/titlebar/win10/sticky_focus_inactive.svg"
+theme.titlebar_sticky_button_normal_inactive = themes_path .. "material_darker/titlebar/win10/sticky_normal_inactive.svg"
 
-theme.titlebar_floating_button_focus_active  = themes_path .. "material_darker/titlebar/floating_focus_active.png"
-theme.titlebar_floating_button_normal_active = themes_path .. "material_darker/titlebar/floating_normal_active.png"
-theme.titlebar_floating_button_focus_inactive  = themes_path .. "material_darker/titlebar/floating_focus_inactive.png"
-theme.titlebar_floating_button_normal_inactive = themes_path .. "material_darker/titlebar/floating_normal_inactive.png"
+theme.titlebar_floating_button_focus_active  = themes_path .. "material_darker/titlebar/win10/floating_focus_active.svg"
+theme.titlebar_floating_button_normal_active = themes_path .. "material_darker/titlebar/win10/floating_normal_active.svg"
+theme.titlebar_floating_button_focus_inactive  = themes_path .. "material_darker/titlebar/win10/floating_focus_inactive.svg"
+theme.titlebar_floating_button_normal_inactive = themes_path .. "material_darker/titlebar/win10/floating_normal_inactive.svg"
 
-theme.titlebar_maximized_button_focus_active  = themes_path .. "material_darker/titlebar/maximized_focus_active.png"
-theme.titlebar_maximized_button_normal_active = themes_path .. "material_darker/titlebar/maximized_normal_active.png"
-theme.titlebar_maximized_button_focus_inactive  = themes_path .. "material_darker/titlebar/maximized_focus_inactive.png"
-theme.titlebar_maximized_button_normal_inactive = themes_path .. "material_darker/titlebar/maximized_normal_inactive.png"
+theme.titlebar_maximized_button_focus_active  = themes_path .. "material_darker/titlebar/win10/maximized_focus_active.svg"
+theme.titlebar_maximized_button_normal_active = themes_path .. "material_darker/titlebar/win10/maximized_normal_active.svg"
+theme.titlebar_maximized_button_focus_inactive  = themes_path .. "material_darker/titlebar/win10/maximized_focus_inactive.svg"
+theme.titlebar_maximized_button_normal_inactive = themes_path .. "material_darker/titlebar/win10/maximized_normal_inactive.svg"
 -- }}}
 -- }}}
 
