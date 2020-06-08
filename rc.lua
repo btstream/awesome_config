@@ -957,7 +957,67 @@ client.connect_signal(
             )
         )
 
-        awful.titlebar(c, {size = 22}):setup {
+        -- create a close button
+        local close_button =
+            wibox.widget {
+            text = "",
+            font = "CaskaydiaCove Nerd Font Mono 16",
+            widget = wibox.widget.textbox
+        }
+
+        close_button:buttons(
+            gears.table.join(
+                awful.button(
+                    {},
+                    1,
+                    function()
+                        c:kill()
+                    end
+                )
+            )
+        )
+
+        -- create a minimal button
+        local min_button =
+            wibox.widget {
+            text = "",
+            font = "CaskaydiaCove Nerd Font Mono 16",
+            widget = wibox.widget.textbox
+        }
+
+        min_button:buttons(
+            gears.table.join(
+                awful.button(
+                    {},
+                    1,
+                    function()
+                        c.minimized = true
+                    end
+                )
+            )
+        )
+
+        -- create a maximized button
+        local max_button =
+            wibox.widget {
+            text = "",
+            font = "CaskaydiaCove Nerd Font Mono 16",
+            widget = wibox.widget.textbox
+        }
+
+        max_button:buttons(
+            gears.table.join(
+                awful.button(
+                    {},
+                    1,
+                    function()
+                        c.maximized = not c.maximized
+                    end
+                )
+            )
+        )
+
+        awful.titlebar(c, {size = 24}):setup {
             -- { -- Left
             --     awful.titlebar.widget.iconwidget(c),
             --     buttons = buttons,
@@ -978,6 +1038,14 @@ client.connect_signal(
             --    widget = wibox.container.margin,
             --},
             {
+                {
+                    close_button,
+                    min_button,
+                    max_button,
+                    layout = wibox.layout.fixed.horizontal(),
+                    spacing = 6
+                },
+                left = 10,
                 widget = wibox.container.margin
             },
             {

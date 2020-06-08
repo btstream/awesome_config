@@ -13,30 +13,32 @@ theme.wallpaper = themes_path .. "material_darker/background.png"
 -- }}}
 
 -- {{{ Styles
-theme.font      = "CaskaydiaCove Nerd Font Mono 10"
+theme.font = "CaskaydiaCove Nerd Font Mono 10"
 -- theme.font       = "sans 10"
 
 -- {{{ Colors
-theme.fg_normal  = "#eeffff"
-theme.fg_focus   = "#eeffff"
-theme.fg_urgent  = "#ff5370"
-theme.bg_normal  = "#212121"
-theme.bg_focus   = "#4a4a4a"
-theme.bg_urgent  = "#3F3F3F"
+theme.fg_normal = "#eeffff"
+theme.fg_focus = "#eeffff"
+theme.fg_urgent = "#ff5370"
+theme.bg_normal = "#212121"
+theme.bg_focus = "#4a4a4a"
+theme.bg_urgent = "#3F3F3F"
 theme.bg_systray = theme.bg_normal
 -- }}}
 
 -- {{{ Borders
-theme.useless_gap   = 2.5
+theme.useless_gap = 2.5
 theme.gap_single_client = false
-theme.border_width  = dpi(1)
+theme.border_width = dpi(1)
 theme.border_normal = "#212121"
-theme.border_focus  = "#82aaff"
+theme.border_focus = "#82aaff"
 theme.border_marked = "#82aaff"
 -- }}}
 
 -- {{{ Titlebars
-theme.titlebar_bg_focus  = "#212121"
+theme.titlebar_fg_focus = "#b9c6c6"
+theme.titlebar_bg_focus = "#212121"
+theme.titlebar_fg_normal = "#3F3F3F"
 theme.titlebar_bg_normal = "#212121"
 -- }}}
 
@@ -74,7 +76,7 @@ theme.mouse_finder_color = "#ff5370"
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_height = dpi(15)
-theme.menu_width  = dpi(100)
+theme.menu_width = dpi(100)
 -- }}}
 
 -- {{{ Icons
@@ -85,55 +87,63 @@ theme.menu_width  = dpi(100)
 -- }}}
 
 -- {{{ Misc
-theme.awesome_icon           = themes_path .. "material_darker/start-menu.svg"
-theme.menu_submenu_icon      = themes_path .. "default/submenu.png"
+theme.awesome_icon = themes_path .. "material_darker/start-menu.svg"
+theme.menu_submenu_icon = themes_path .. "default/submenu.png"
 -- }}}
 
 -- {{{ Layout
-theme.layout_tile       = themes_path .. "material_darker/layouts/tile.png"
-theme.layout_tileleft   = themes_path .. "material_darker/layouts/tileleft.png"
+theme.layout_tile = themes_path .. "material_darker/layouts/tile.png"
+theme.layout_tileleft = themes_path .. "material_darker/layouts/tileleft.png"
 theme.layout_tilebottom = themes_path .. "material_darker/layouts/tilebottom.png"
-theme.layout_tiletop    = themes_path .. "material_darker/layouts/tiletop.png"
-theme.layout_fairv      = themes_path .. "material_darker/layouts/fairv.png"
-theme.layout_fairh      = themes_path .. "material_darker/layouts/fairh.png"
-theme.layout_spiral     = themes_path .. "material_darker/layouts/spiral.png"
-theme.layout_dwindle    = themes_path .. "material_darker/layouts/dwindle.png"
-theme.layout_max        = themes_path .. "material_darker/layouts/max.png"
+theme.layout_tiletop = themes_path .. "material_darker/layouts/tiletop.png"
+theme.layout_fairv = themes_path .. "material_darker/layouts/fairv.png"
+theme.layout_fairh = themes_path .. "material_darker/layouts/fairh.png"
+theme.layout_spiral = themes_path .. "material_darker/layouts/spiral.png"
+theme.layout_dwindle = themes_path .. "material_darker/layouts/dwindle.png"
+theme.layout_max = themes_path .. "material_darker/layouts/max.png"
 theme.layout_fullscreen = themes_path .. "material_darker/layouts/fullscreen.png"
-theme.layout_magnifier  = themes_path .. "material_darker/layouts/magnifier.png"
-theme.layout_floating   = themes_path .. "material_darker/layouts/floating.png"
-theme.layout_cornernw   = themes_path .. "material_darker/layouts/cornernw.png"
-theme.layout_cornerne   = themes_path .. "material_darker/layouts/cornerne.png"
-theme.layout_cornersw   = themes_path .. "material_darker/layouts/cornersw.png"
-theme.layout_cornerse   = themes_path .. "material_darker/layouts/cornerse.png"
+theme.layout_magnifier = themes_path .. "material_darker/layouts/magnifier.png"
+theme.layout_floating = themes_path .. "material_darker/layouts/floating.png"
+theme.layout_cornernw = themes_path .. "material_darker/layouts/cornernw.png"
+theme.layout_cornerne = themes_path .. "material_darker/layouts/cornerne.png"
+theme.layout_cornersw = themes_path .. "material_darker/layouts/cornersw.png"
+theme.layout_cornerse = themes_path .. "material_darker/layouts/cornerse.png"
 -- }}}
 
 -- {{{ Titlebar
-theme.titlebar_close_button_focus  = themes_path .. "material_darker/titlebar/win10/close_focus.svg"
+theme.titlebar_close_button_focus = themes_path .. "material_darker/titlebar/win10/close_focus.svg"
 theme.titlebar_close_button_normal = themes_path .. "material_darker/titlebar/win10/close_normal.svg"
 
 theme.titlebar_minimize_button_normal = themes_path .. "material_darker/titlebar/win10/minimize_normal.svg"
-theme.titlebar_minimize_button_focus  = themes_path .. "material_darker/titlebar/win10/minimize_focus.svg"
+theme.titlebar_minimize_button_focus = themes_path .. "material_darker/titlebar/win10/minimize_focus.svg"
 
-theme.titlebar_ontop_button_focus_active  = themes_path .. "material_darker/titlebar/win10/ontop_focus_active.svg"
+theme.titlebar_ontop_button_focus_active = themes_path .. "material_darker/titlebar/win10/ontop_focus_active.svg"
 theme.titlebar_ontop_button_normal_active = themes_path .. "material_darker/titlebar/win10/ontop_normal_active.svg"
-theme.titlebar_ontop_button_focus_inactive  = themes_path .. "material_darker/titlebar/win10/ontop_focus_inactive.svg"
+theme.titlebar_ontop_button_focus_inactive = themes_path .. "material_darker/titlebar/win10/ontop_focus_inactive.svg"
 theme.titlebar_ontop_button_normal_inactive = themes_path .. "material_darker/titlebar/win10/ontop_normal_inactive.svg"
 
-theme.titlebar_sticky_button_focus_active  = themes_path .. "material_darker/titlebar/win10/sticky_focus_active.svg"
+theme.titlebar_sticky_button_focus_active = themes_path .. "material_darker/titlebar/win10/sticky_focus_active.svg"
 theme.titlebar_sticky_button_normal_active = themes_path .. "material_darker/titlebar/win10/sticky_normal_active.svg"
-theme.titlebar_sticky_button_focus_inactive  = themes_path .. "material_darker/titlebar/win10/sticky_focus_inactive.svg"
-theme.titlebar_sticky_button_normal_inactive = themes_path .. "material_darker/titlebar/win10/sticky_normal_inactive.svg"
+theme.titlebar_sticky_button_focus_inactive = themes_path .. "material_darker/titlebar/win10/sticky_focus_inactive.svg"
+theme.titlebar_sticky_button_normal_inactive =
+    themes_path .. "material_darker/titlebar/win10/sticky_normal_inactive.svg"
 
-theme.titlebar_floating_button_focus_active  = themes_path .. "material_darker/titlebar/win10/floating_focus_active.svg"
-theme.titlebar_floating_button_normal_active = themes_path .. "material_darker/titlebar/win10/floating_normal_active.svg"
-theme.titlebar_floating_button_focus_inactive  = themes_path .. "material_darker/titlebar/win10/floating_focus_inactive.svg"
-theme.titlebar_floating_button_normal_inactive = themes_path .. "material_darker/titlebar/win10/floating_normal_inactive.svg"
+theme.titlebar_floating_button_focus_active = themes_path .. "material_darker/titlebar/win10/floating_focus_active.svg"
+theme.titlebar_floating_button_normal_active =
+    themes_path .. "material_darker/titlebar/win10/floating_normal_active.svg"
+theme.titlebar_floating_button_focus_inactive =
+    themes_path .. "material_darker/titlebar/win10/floating_focus_inactive.svg"
+theme.titlebar_floating_button_normal_inactive =
+    themes_path .. "material_darker/titlebar/win10/floating_normal_inactive.svg"
 
-theme.titlebar_maximized_button_focus_active  = themes_path .. "material_darker/titlebar/win10/maximized_focus_active.svg"
-theme.titlebar_maximized_button_normal_active = themes_path .. "material_darker/titlebar/win10/maximized_normal_active.svg"
-theme.titlebar_maximized_button_focus_inactive  = themes_path .. "material_darker/titlebar/win10/maximized_focus_inactive.svg"
-theme.titlebar_maximized_button_normal_inactive = themes_path .. "material_darker/titlebar/win10/maximized_normal_inactive.svg"
+theme.titlebar_maximized_button_focus_active =
+    themes_path .. "material_darker/titlebar/win10/maximized_focus_active.svg"
+theme.titlebar_maximized_button_normal_active =
+    themes_path .. "material_darker/titlebar/win10/maximized_normal_active.svg"
+theme.titlebar_maximized_button_focus_inactive =
+    themes_path .. "material_darker/titlebar/win10/maximized_focus_inactive.svg"
+theme.titlebar_maximized_button_normal_inactive =
+    themes_path .. "material_darker/titlebar/win10/maximized_normal_inactive.svg"
 -- }}}
 -- }}}
 
