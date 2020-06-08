@@ -47,8 +47,10 @@ theme.titlebar_bg_normal = "#212121"
 -- titlebar_[normal|focus]
 -- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
 -- Example:
-theme.taglist_fg_focus = "#82aaff"
-theme.taglist_bg_focus = "#4a4a4a"
+theme.taglist_fg_focus = "#ffffff"
+theme.taglist_bg_focus = "#82aaff"
+theme.taglist_fg_urgent = "#ffffff"
+theme.taglist_bg_urgent = "#ff5370"
 -- }}}
 
 -- {{{ Widgets
