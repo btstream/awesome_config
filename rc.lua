@@ -658,7 +658,7 @@ clientkeys =
     ),
     awful.key(
         {modkey, "Shift"},
-        "c",
+        "q",
         function(c)
             c:kill()
         end,
