@@ -340,20 +340,23 @@ awful.screen.connect_for_each_screen(
             style = {
                 shape_border_width = 1,
                 shape_border_color = "#777777",
-                shape = gears.shape.rounded_bar
+                shape = function(cr, w, h)
+                    gears.shape.rounded_rect(cr, w, h, 4)
+                end
+                -- gears.shape.rounded_bar
             },
             layout = {
-                spacing = 8,
-                spacing_widget = {
-                    {
-                        forced_width = 4,
-                        shape = gears.shape.circle,
-                        widget = wibox.widget.separator
-                    },
-                    valign = "center",
-                    halign = "center",
-                    widget = wibox.container.place
-                },
+                spacing = 3,
+                -- spacing_widget = {
+                --     {
+                --         forced_width = 4,
+                --         shape = gears.shape.circle,
+                --         widget = wibox.widget.separator
+                --     },
+                --     valign = "center",
+                --     halign = "center",
+                --     widget = wibox.container.place
+                -- },
                 layout = wibox.layout.flex.horizontal
             },
             -- Notice that there is *NO* wibox.wibox prefix, it is a template,
