@@ -27,9 +27,9 @@ theme.bg_systray = theme.bg_normal
 -- }}}
 
 -- {{{ Borders
-theme.useless_gap   = dpi(5)
+theme.useless_gap   = 5
 theme.gap_single_client = false
-theme.border_width  = dpi(2)
+theme.border_width  = dpi(1)
 theme.border_normal = "#212121"
 theme.border_focus  = "#82aaff"
 theme.border_marked = "#82aaff"
@@ -77,8 +77,8 @@ theme.menu_width  = dpi(100)
 
 -- {{{ Icons
 -- {{{ Taglist
-theme.taglist_squares_sel   = themes_path .. "material_darker/taglist/squarefz.png"
-theme.taglist_squares_unsel = themes_path .. "material_darker/taglist/squarez.png"
+-- theme.taglist_squares_sel   = themes_path .. "material_darker/taglist/squarefz.png"
+-- theme.taglist_squares_unsel = themes_path .. "material_darker/taglist/squarez.png"
 --theme.taglist_squares_resize = "false"
 -- }}}
 

@@ -183,18 +183,76 @@ awful.screen.connect_for_each_screen(function(s)
                            awful.button({ }, 3, function () awful.layout.inc(-1) end),
                            awful.button({ }, 4, function () awful.layout.inc( 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(-1) end)))
+
     -- Create a taglist widget
-    s.mytaglist = awful.widget.taglist {
+    mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
+        widget_template = {
+            {
+                {
+                    id = "text_role",
+                    widget = wibox.widget.textbox,
+                },
+                left = 8,
+                right = 8,
+                widget = wibox.container.margin,
+            },
+            id = "background_role",
+            widget = wibox.container.background,
+        },
         buttons = taglist_buttons
     }
 
+    s.mytaglist = wibox.container.margin(mytaglist, 4, 4, 0, 0)
+
     -- Create a tasklist widget
+    -- s.mytasklist = awful.widget.tasklist {
+    --     screen  = s,
+    --     filter  = awful.widget.tasklist.filter.currenttags,
+    --     buttons = tasklist_buttons
+    -- }
     s.mytasklist = awful.widget.tasklist {
-        screen  = s,
-        filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
+        screen   = s,
+        filter   = awful.widget.tasklist.filter.currenttags,
+        buttons  = tasklist_buttons,
+        layout   = {
+            -- spacing_widget = {
+            --     {
+            --         forced_width  = 10,
+            --         forced_height = 24,
+            --         thickness     = 1,
+            --         color         = "#434343",
+            --         widget        = wibox.widget.separator
+            --     },
+            --     valign = 'center',
+            --     halign = 'center',
+            --     widget = wibox.container.place,
+            -- },
+            spacing = 1,
+            layout  = wibox.layout.fixed.horizontal
+        },
+        widget_template = {
+            {
+                wibox.widget.base.make_widget(),
+                forced_height = 2,
+                id            = 'background_role',
+                widget        = wibox.container.background,
+            },
+            {
+                {
+                    id     = 'clienticon',
+                    widget = awful.widget.clienticon,
+                },
+                margins = 5,
+                widget  = wibox.container.margin
+            },
+            nil,
+            create_callback = function(self, c, index, objects) --luacheck: no unused args
+                self:get_children_by_id('clienticon')[1].client = c
+            end,
+            layout = wibox.layout.align.vertical,
+        },
     }
 
     -- Create the wibox
@@ -203,7 +261,7 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create system tray
     s.tray = wibox.widget.systray()
     s.tray:set_base_size(22)
-    s.systray = wibox.container.margin(s.tray,2,2,2,0)
+    s.systray = wibox.container.margin(s.tray, 2, 2, 4, 0)
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -536,7 +594,7 @@ client.connect_signal("manage", function (c)
     end
 
     c.shape = function(cr,w,h)
-        gears.shape.rounded_rect(cr,w,h,8)
+        gears.shape.rounded_rect(cr,w,h,4)
     end
 end)
 
