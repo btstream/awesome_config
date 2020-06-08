@@ -148,6 +148,22 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock("<span font='Bodoni MT Bold 12'>%Y-%m-%d %H:%M</span>")
+month_calendar =
+    awful.widget.calendar_popup.month(
+    {
+        margin = dpi(10),
+        spacing = dpi(-1),
+        start_sunday = false,
+        opacity = 0.8,
+        font = "Bodoni MT Bold 10",
+        style_normal = {
+            border_width = dpi(1),
+            border_color = "#777777",
+            padding = dpi(10)
+        }
+    }
+)
+month_calendar:attach(mytextclock, "tr")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons =
