@@ -18,6 +18,12 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+local dpi = require("beautiful.xresources").apply_dpi
+
+-- {{{ notifications
+naughty.config.spacing = dpi(5)
+-- }}}
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -243,7 +249,7 @@ awful.screen.connect_for_each_screen(
     function(s)
         -- Wallpaper
         set_wallpaper(s)
-        s.padding = {left = 10, right = 10, top = 10, bottom = 10}
+        s.padding = {left = dpi(10), right = dpi(10), top = dpi(10), bottom = dpi(10)}
 
         -- Each screen has its own tag table.
         awful.tag({"1", "2", "3", "4", "5", "6", "7", "8", "9"}, s, awful.layout.layouts[1])
@@ -395,14 +401,24 @@ awful.screen.connect_for_each_screen(
         s.mywibox = awful.wibar({position = "top", screen = s})
 
         -- Create a menu_button
-        local menu_button = wibox.widget {
+        local menu_button =
+            wibox.widget {
             markup = "<span font='CaskaydiaCove Nerd Font Mono 22'></span>",
             widget = wibox.widget.textbox
         }
-        menu_button:buttons(gears.table.join(
-            awful.button({}, 1, function() mymainmenu:toggle() end)
-        ))
-        s.menu_button = wibox.widget {
+        menu_button:buttons(
+            gears.table.join(
+                awful.button(
+                    {},
+                    1,
+                    function()
+                        mymainmenu:toggle()
+                    end
+                )
+            )
+        )
+        s.menu_button =
+            wibox.widget {
             widget = wibox.container.margin,
             left = 8,
             right = 2,
@@ -565,7 +581,7 @@ globalkeys =
         {modkey},
         "h",
         function()
-            awful.tag.incmwfNact(-0.05)
+            awful.tag.incmwfact(-0.05)
         end,
         {description = "decrease master width factor", group = "layout"}
     ),
@@ -864,7 +880,8 @@ awful.rules.rules = {
             keys = clientkeys,
             buttons = clientbuttons,
             screen = awful.screen.preferred,
-            placement = awful.placement.no_overlap + awful.placement.no_offscreen
+            placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+            size_hints_honor = false
         }
     },
     -- Floating clients.
