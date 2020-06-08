@@ -42,6 +42,9 @@ theme.titlebar_fg_normal = "#3F3F3F"
 theme.titlebar_bg_normal = "#212121"
 -- }}}
 
+-- {{{ tasklist
+theme.tasklist_bg_focus = "#383838"
+-- }}}
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:
