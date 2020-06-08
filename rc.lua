@@ -124,13 +124,13 @@ mymainmenu =
     }
 )
 
-mylauncher =
-    awful.widget.launcher(
-    {
-        image = beautiful.awesome_icon,
-        menu = mymainmenu
-    }
-)
+-- mylauncher =
+--     awful.widget.launcher(
+--     {
+--         image = beautiful.awesome_icon,
+--         menu = mymainmenu
+--     }
+-- )
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
@@ -394,6 +394,21 @@ awful.screen.connect_for_each_screen(
         -- Create the wibox
         s.mywibox = awful.wibar({position = "top", screen = s})
 
+        -- Create a menu_button
+        local menu_button = wibox.widget {
+            markup = "<span font='CaskaydiaCove Nerd Font Mono 22'></span>",
+            widget = wibox.widget.textbox
+        }
+        menu_button:buttons(gears.table.join(
+            awful.button({}, 1, function() mymainmenu:toggle() end)
+        ))
+        s.menu_button = wibox.widget {
+            widget = wibox.container.margin,
+            left = 8,
+            right = 2,
+            menu_button
+        }
+
         -- Create system tray
         systray = wibox.widget.systray()
         systray:set_base_size(22)
@@ -414,7 +429,7 @@ awful.screen.connect_for_each_screen(
             {
                 -- Left widgets
                 layout = wibox.layout.fixed.horizontal,
-                wibox.container.margin(mylauncher, 2, 2, 2, 2),
+                s.menu_button,
                 s.mytaglist,
                 s.mypromptbox
             },
@@ -550,7 +565,7 @@ globalkeys =
         {modkey},
         "h",
         function()
-            awful.tag.incmwfact(-0.05)
+            awful.tag.incmwfNact(-0.05)
         end,
         {description = "decrease master width factor", group = "layout"}
     ),
