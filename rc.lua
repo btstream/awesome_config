@@ -696,6 +696,32 @@ globalkeys =
             awful.spawn("/usr/bin/rofi -show")
         end,
         {description = "rofi", group = "launcher"}
+    ),
+    -- lockscrren
+    awful.key(
+        {"Mod1", "Control"},
+        "l",
+        function()
+            awful.spawn("/usr/bin/betterlockscreen -l dimblur")
+        end,
+        {description = "locksscreen", group = "launcher"}
+    ),
+    -- flameshort
+    awful.key(
+        {},
+        "Print",
+        function()
+            awful.spawn("/usr/bin/flameshot full -p ~/Pictures/Screenshots")
+        end,
+        {description = "Print full screen", group = "launcher"}
+    ),
+    awful.key(
+        {"Control"},
+        "Print",
+        function()
+            awful.spawn("/usr/bin/flameshot gui")
+        end,
+        {description = "Print full screen", group = "launcher"}
     )
 )
 
@@ -1073,25 +1099,6 @@ client.connect_signal(
         )
 
         awful.titlebar(c, {size = 24}):setup {
-            -- { -- Left
-            --     awful.titlebar.widget.iconwidget(c),
-            --     buttons = buttons,
-            --     layout  = wibox.layout.fixed.horizontal
-            -- },
-            --{ -- Right
-            --    {
-            --        awful.titlebar.widget.closebutton    (c),
-            --        awful.titlebar.widget.minimizebutton (c),
-            --        -- awful.titlebar.widget.floatingbutton (c),
-            --        awful.titlebar.widget.maximizedbutton(c),
-            --        --awful.titlebar.widget.stickybutton   (c),
-            --        -- awful.titlebar.widget.ontopbutton    (c),
-            --        layout = wibox.layout.fixed.horizontal(),
-            --        spacing = -8,
-            --    },
-            --    margins = 2,
-            --    widget = wibox.container.margin,
-            --},
             {
                 {
                     close_button,
