@@ -24,9 +24,12 @@ local dpi = require("beautiful.xresources").apply_dpi
 naughty.config.spacing = dpi(5)
 naughty.config.icon_dirs = {
     "/usr/share/pixmaps",
-    "/usr/share/icons/Qogir-dark/scalable/apps",
     "/usr/share/icons/Papirus-Dark/48x48/apps",
+    "/usr/share/icons/Papirus-Dark/48x48/status",
+    "/usr/share/icons/Papirus-Dark/48x48/devices",
     "/usr/share/icons/Papirus/48x48/apps",
+    "/usr/share/icons/Papirus/48x48/status",
+    "/usr/share/icons/Papirus/48x48/devices",
     "/usr/share/icons/gnome/scalable/apps",
     "/usr/share/icons/breeze/apps"
 }
