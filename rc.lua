@@ -347,12 +347,12 @@ awful.screen.connect_for_each_screen(
             filter = awful.widget.taglist.filter.noempty,
             style = {
                 shape = gears.shape.circle,
-                shape_border_width = 1,
+                shape_border_width = dpi(1),
                 shape_border_color = "#777777",
                 font = "Linux Libertine G Bold 10"
             },
             layout = {
-                spacing = 2,
+                spacing = dpi(2),
                 layout = wibox.layout.flex.horizontal
             },
             widget_template = {
@@ -361,7 +361,7 @@ awful.screen.connect_for_each_screen(
                         id = "text_role",
                         widget = wibox.widget.textbox
                     },
-                    margins = 5,
+                    margins = dpi(5),
                     widget = wibox.container.margin
                 },
                 id = "background_role",
@@ -375,18 +375,20 @@ awful.screen.connect_for_each_screen(
             {
                 {
                     mytaglist,
-                    left = 6,
-                    right = 6,
+                    left = dpi(6),
+                    right = dpi(6),
                     widget = wibox.container.margin
                 },
-                shape_border_width = 1,
+                shape_border_width = dpi(1),
                 shape_border_color = "#777777",
                 bg = "#303030",
                 shape = gears.shape.rounded_bar,
                 widget = wibox.container.background
             },
-            right = 4,
-            left = 4,
+            right = dpi(4),
+            left = dpi(4),
+            top = dpi(1),
+            bottom = dpi(1),
             widget = wibox.container.margin
         }
 
@@ -397,7 +399,7 @@ awful.screen.connect_for_each_screen(
             filter = awful.widget.tasklist.filter.currenttags,
             buttons = tasklist_buttons,
             style = {
-                shape_border_width = 1,
+                shape_border_width = dpi(1),
                 shape_border_color = "#777777",
                 -- shape = function(cr, w, h)
                 --     gears.shape.rounded_rect(cr, w, h, 4)
@@ -405,10 +407,10 @@ awful.screen.connect_for_each_screen(
                 shape = gears.shape.rounded_bar
             },
             layout = {
-                spacing = 8,
+                spacing = dpi(8),
                 spacing_widget = {
                     {
-                        forced_width = 4,
+                        forced_width = dpi(4),
                         shape = gears.shape.circle,
                         widget = wibox.widget.separator
                     },
@@ -428,7 +430,7 @@ awful.screen.connect_for_each_screen(
                                 id = "icon_role",
                                 widget = wibox.widget.imagebox
                             },
-                            margins = 5,
+                            margins = dpi(5),
                             widget = wibox.container.margin
                         },
                         {
@@ -437,8 +439,8 @@ awful.screen.connect_for_each_screen(
                         },
                         layout = wibox.layout.fixed.horizontal
                     },
-                    left = 10,
-                    right = 10,
+                    left = dpi(10),
+                    right = dpi(10),
                     widget = wibox.container.margin
                 },
                 id = "background_role",
@@ -473,20 +475,20 @@ awful.screen.connect_for_each_screen(
         s.menu_button =
             wibox.widget {
             widget = wibox.container.margin,
-            left = 8,
-            right = 2,
+            left = dpi(8),
+            right = dpi(2),
             menu_button
         }
 
         -- Create system tray
         systray = wibox.widget.systray()
-        systray:set_base_size(22)
+        systray:set_base_size(dpi(22))
         -- s.systray = wibox.container.margin(s.tray, 2, 2, 2, 4)
         s.systray =
             wibox.widget {
             systray,
-            bottom = dpi(2),
-            top = dpi(2),
+            bottom = dpi(4),
+            top = dpi(4),
             right = dpi(4),
             left = dpi(4),
             widget = wibox.container.margin
@@ -510,7 +512,7 @@ awful.screen.connect_for_each_screen(
                 -- wibox.widget.systray(),
                 s.systray,
                 mytextclock,
-                wibox.container.margin(s.mylayoutbox, 6, 6, 6, 6)
+                wibox.container.margin(s.mylayoutbox, dpi(6), dpi(6), dpi(6), dpi(6))
             }
         }
     end
