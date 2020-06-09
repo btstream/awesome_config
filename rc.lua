@@ -317,7 +317,7 @@ awful.screen.connect_for_each_screen(
                 shape = gears.shape.circle,
                 shape_border_width = 1,
                 shape_border_color = "#777777",
-                font = "Linux Libertine G Bold 11"
+                font = "Linux Libertine G Bold 10"
             },
             layout = {
                 spacing = 2,
@@ -329,7 +329,7 @@ awful.screen.connect_for_each_screen(
                         id = "text_role",
                         widget = wibox.widget.textbox
                     },
-                    margins = 6,
+                    margins = 5,
                     widget = wibox.container.margin
                 },
                 id = "background_role",
@@ -343,14 +343,14 @@ awful.screen.connect_for_each_screen(
             {
                 {
                     mytaglist,
-                    left = 8,
-                    right = 8,
+                    left = 6,
+                    right = 6,
                     widget = wibox.container.margin
                 },
-                -- shape_border_width = 1,
-                -- shape_border_color = "#777777",
-                -- bg = "#303030",
-                -- shape = gears.shape.rounded_bar,
+                shape_border_width = 1,
+                shape_border_color = "#777777",
+                bg = "#303030",
+                shape = gears.shape.rounded_bar,
                 widget = wibox.container.background
             },
             right = 4,
@@ -358,7 +358,7 @@ awful.screen.connect_for_each_screen(
         }
 
         -- Create a tasklist widget
-        s.mytasklist =
+        local tasklist =
             awful.widget.tasklist {
             screen = s,
             filter = awful.widget.tasklist.filter.currenttags,
@@ -411,6 +411,10 @@ awful.screen.connect_for_each_screen(
                 id = "background_role",
                 widget = wibox.container.background
             }
+        }
+        s.mytasklist = wibox.widget {
+            tasklist,
+            widget = wibox.container.margin
         }
 
         -- Create the wibox
