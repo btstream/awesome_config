@@ -19,19 +19,14 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 local dpi = require("beautiful.xresources").apply_dpi
-beautiful.icon_theme = "Qogir-dark"
 
 -- {{{ notifications
 naughty.config.spacing = dpi(5)
 naughty.config.icon_dirs = {
     "/usr/share/pixmaps",
-    -- "/usr/share/icons/Qogir/scalable/satus",
-    -- "/usr/share/icons/Qogir/scalable/devices",
-    -- "/usr/share/icons/Qogir-dark/scalable/devices",
-    -- "/usr/share/icons/Qogir-dark/scalable/status",
-    -- "/usr/share/icons/gnome/scalable/status",
-    -- "/usr/share/icons/gnome/scalable/devices",
     "/usr/share/icons/Qogir-dark/scalable/apps",
+    "/usr/share/icons/Papirus-Dark/48x48/apps",
+    "/usr/share/icons/Papirus/48x48/apps",
     "/usr/share/icons/gnome/scalable/apps",
     "/usr/share/icons/breeze/apps"
 }
