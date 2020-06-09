@@ -453,7 +453,11 @@ awful.screen.connect_for_each_screen(
         }
 
         -- Create the wibox
-        s.mywibox = awful.wibar({position = "top", screen = s})
+        s.mywibox = awful.wibar({
+            position = "top",
+            screen = s,
+            height = dpi(28)
+        })
 
         -- Create a menu_button
         local menu_button =
@@ -477,6 +481,7 @@ awful.screen.connect_for_each_screen(
             widget = wibox.container.margin,
             left = dpi(8),
             right = dpi(2),
+            bottom = dpi(2),
             menu_button
         }
 
@@ -487,10 +492,10 @@ awful.screen.connect_for_each_screen(
         s.systray =
             wibox.widget {
             systray,
-            bottom = dpi(4),
-            top = dpi(4),
-            right = dpi(4),
-            left = dpi(4),
+            bottom = dpi(2),
+            top = dpi(2),
+            right = dpi(8),
+            left = dpi(8),
             widget = wibox.container.margin
         }
 

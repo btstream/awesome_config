@@ -12,7 +12,7 @@ local gears = require("gears")
 -- {{{ Main
 local theme = {}
 theme.wallpaper = themes_path .. "material_darker/background.png"
-theme.icon_theme = "Qogir-dark"
+theme.icon_theme = "Papirus-Dark"
 -- }}}
 
 -- {{{ Styles
@@ -62,7 +62,7 @@ theme.taglist_bg_urgent = "#ff5370"
 
 -- {{{ systray
 theme.bg_systray = theme.bg_normal
-theme.systray_icon_spacing = dpi(2)
+theme.systray_icon_spacing = dpi(3)
 -- }}}
 
 -- {{{ Widgets
