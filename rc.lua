@@ -176,7 +176,15 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock("<span font='Bodoni MT Bold 12'>%Y-%m-%d %H:%M</span>")
+mytextclock = wibox.widget{
+    widget = wibox.container.margin,
+    bottom = dpi(2),
+    {
+        format = "<span font='Iwona Cond Heavy 12'>%Y-%m-%d %H:%M</span>",
+        widget = wibox.widget.textclock,
+    }
+}
+-- wibox.widget.textclock()
 month_calendar =
     awful.widget.calendar_popup.month(
     {
@@ -184,7 +192,7 @@ month_calendar =
         spacing = dpi(-1),
         start_sunday = false,
         opacity = 0.8,
-        font = "Bodoni MT Bold 10",
+        font = "Iwona Cond Heavy 10",
         style_normal = {
             border_width = dpi(1),
             border_color = "#777777",
