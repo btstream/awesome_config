@@ -19,9 +19,38 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 local dpi = require("beautiful.xresources").apply_dpi
+beautiful.icon_theme = "Qogir-dark"
 
 -- {{{ notifications
 naughty.config.spacing = dpi(5)
+naughty.config.icon_dirs = {
+    "/usr/share/pixmaps",
+    -- "/usr/share/icons/Qogir/scalable/satus",
+    -- "/usr/share/icons/Qogir/scalable/devices",
+    -- "/usr/share/icons/Qogir-dark/scalable/devices",
+    -- "/usr/share/icons/Qogir-dark/scalable/status",
+    -- "/usr/share/icons/gnome/scalable/status",
+    -- "/usr/share/icons/gnome/scalable/devices",
+    "/usr/share/icons/Qogir-dark/scalable/apps",
+    "/usr/share/icons/gnome/scalable/apps",
+    "/usr/share/icons/breeze/apps"
+}
+naughty.config.icon_formats = {
+    'svg',
+    'png'
+}
+
+local menubar = require("menubar")
+naughty.connect_signal("request::icon", function(n, context, hints)
+    if context ~= "app_icon" then return end
+
+    local path = menubar.utils.lookup_icon(hints.app_icon) or
+        menubar.utils.lookup_icon(hints.app_icon:lower())
+
+    if path then
+        n.icon = path
+    end
+end)
 -- }}}
 
 -- {{{ Error handling
@@ -715,7 +744,7 @@ globalkeys =
         {},
         "Print",
         function()
-            awful.spawn("/usr/bin/flameshot full -p ~/Pictures/Screenshots")
+            awful.spawn("/usr/bin/flameshot full -p " .. os.getenv("HOME") .."/Pictures/Screenshots")
         end,
         {description = "Print full screen", group = "launcher"}
     ),
