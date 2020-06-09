@@ -25,7 +25,6 @@ theme.fg_urgent = "#ff5370"
 theme.bg_normal = "#212121"
 theme.bg_focus = "#2d2d2d"
 theme.bg_urgent = "#3F3F3F"
-theme.bg_systray = theme.bg_normal
 -- }}}
 
 -- {{{ Borders
@@ -58,6 +57,11 @@ theme.taglist_fg_focus = "#ffffff"
 theme.taglist_bg_focus = "#82aaff"
 theme.taglist_fg_urgent = "#ffffff"
 theme.taglist_bg_urgent = "#ff5370"
+-- }}}
+
+-- {{{ systray
+theme.bg_systray = theme.bg_normal
+theme.systray_icon_spacing = dpi(2)
 -- }}}
 
 -- {{{ Widgets

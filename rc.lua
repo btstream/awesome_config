@@ -490,10 +490,10 @@ awful.screen.connect_for_each_screen(
         s.systray =
             wibox.widget {
             systray,
-            bottom = 2,
-            top = 2,
-            right = 4,
-            left = 4,
+            bottom = dpi(2),
+            top = dpi(2),
+            right = dpi(4),
+            left = dpi(4),
             widget = wibox.container.margin
         }
 
