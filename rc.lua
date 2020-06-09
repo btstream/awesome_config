@@ -383,6 +383,7 @@ awful.screen.connect_for_each_screen(
                 widget = wibox.container.background
             },
             right = 4,
+            left = 4,
             widget = wibox.container.margin
         }
 
@@ -452,7 +453,7 @@ awful.screen.connect_for_each_screen(
         -- Create a menu_button
         local menu_button =
             wibox.widget {
-            markup = "<span font='CaskaydiaCove Nerd Font Mono 22'></span>",
+            markup = "<span font='CaskaydiaCove Nerd Font Mono 18'></span>",
             widget = wibox.widget.textbox
         }
         menu_button:buttons(
