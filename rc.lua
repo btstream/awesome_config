@@ -1076,7 +1076,7 @@ client.connect_signal(
         local close_button =
             wibox.widget {
             text = "",
-            font = "CaskaydiaCove Nerd Font Mono 16",
+            font = "CaskaydiaCove Nerd Font Mono 15",
             widget = wibox.widget.textbox
         }
 
@@ -1096,7 +1096,7 @@ client.connect_signal(
         local min_button =
             wibox.widget {
             text = "",
-            font = "CaskaydiaCove Nerd Font Mono 16",
+            font = "CaskaydiaCove Nerd Font Mono 15",
             widget = wibox.widget.textbox
         }
 
@@ -1116,7 +1116,7 @@ client.connect_signal(
         local max_button =
             wibox.widget {
             text = "",
-            font = "CaskaydiaCove Nerd Font Mono 16",
+            font = "CaskaydiaCove Nerd Font Mono 15",
             widget = wibox.widget.textbox
         }
 
@@ -1132,16 +1132,17 @@ client.connect_signal(
             )
         )
 
-        awful.titlebar(c, {size = 24}):setup {
+        awful.titlebar(c, {size = dpi(24)}):setup {
             {
                 {
                     close_button,
                     min_button,
                     max_button,
                     layout = wibox.layout.fixed.horizontal(),
-                    spacing = 6
+                    spacing = dpi(6)
                 },
-                left = 10,
+                left = dpi(10),
+                bottom = dpi(2),
                 widget = wibox.container.margin
             },
             {
