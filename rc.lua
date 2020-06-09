@@ -401,14 +401,14 @@ awful.screen.connect_for_each_screen(
             screen = s,
             filter = awful.widget.tasklist.filter.currenttags,
             buttons = tasklist_buttons,
-            style = {
+            -- style = {
                 -- shape_border_width = dpi(1),
                 -- shape_border_color = "#777777",
-                shape = function(cr, w, h)
-                gears.shape.rounded_rect(cr, w, h, dpi(4))
-                end
+                -- shape = function(cr, w, h)
+                -- gears.shape.rounded_rect(cr, w, h, dpi(4))
+                -- end
                 -- shape = gears.shape.rounded_bar
-            },
+            -- },
             layout = {
                 spacing = dpi(2),
                 -- spacing_widget = {
