@@ -38,10 +38,10 @@ theme.border_marked = "#3F3F3F"
 -- }}}
 
 -- {{{ Titlebars
-theme.titlebar_fg_focus = "#b9c6c6"
+theme.titlebar_fg_focus = "#eeffff"
 theme.titlebar_bg_focus = "#2d2d2d"
 theme.titlebar_fg_normal = "#3F3F3F"
-theme.titlebar_bg_normal = "#2d2d2d"
+theme.titlebar_bg_normal = "#242424"
 -- }}}
 
 -- {{{ tasklist
