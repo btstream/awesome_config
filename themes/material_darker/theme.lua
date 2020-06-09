@@ -45,7 +45,7 @@ theme.titlebar_bg_normal = "#242424"
 -- }}}
 
 -- {{{ tasklist
-theme.tasklist_bg_focus = "#2d2d2d"
+theme.tasklist_bg_focus = "#3F3F3F"
 -- }}}
 -- There are other variable sets
 -- overriding the default one when

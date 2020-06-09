@@ -402,25 +402,26 @@ awful.screen.connect_for_each_screen(
             filter = awful.widget.tasklist.filter.currenttags,
             buttons = tasklist_buttons,
             style = {
-                shape_border_width = dpi(1),
-                shape_border_color = "#777777",
-                -- shape = function(cr, w, h)
-                --     gears.shape.rounded_rect(cr, w, h, 4)
-                -- end
-                shape = gears.shape.rounded_bar
+                -- shape_border_width = dpi(1),
+                -- shape_border_color = "#777777",
+                shape = function(cr, w, h)
+                gears.shape.rounded_rect(cr, w, h, dpi(4))
+                end
+                -- shape = gears.shape.rounded_bar
             },
             layout = {
-                spacing = dpi(8),
-                spacing_widget = {
-                    {
-                        forced_width = dpi(4),
-                        shape = gears.shape.circle,
-                        widget = wibox.widget.separator
-                    },
-                    valign = "center",
-                    halign = "center",
-                    widget = wibox.container.place
-                },
+                spacing = dpi(2),
+                -- spacing_widget = {
+                --     {
+                --         forced_width = dpi(1),
+                --         shape = gears.shape.circle,
+                --         widget = wibox.widget.separator
+                --     },
+                --     valign = "center",
+                --     halign = "center",
+                --     widget = wibox.container.place
+                -- },
+                max_widget_size = dpi(240),
                 layout = wibox.layout.flex.horizontal
             },
             -- Notice that there is *NO* wibox.wibox prefix, it is a template,
@@ -442,8 +443,8 @@ awful.screen.connect_for_each_screen(
                         },
                         layout = wibox.layout.fixed.horizontal
                     },
-                    left = dpi(10),
-                    right = dpi(10),
+                    left = dpi(8),
+                    right = dpi(8),
                     widget = wibox.container.margin
                 },
                 id = "background_role",
@@ -452,6 +453,10 @@ awful.screen.connect_for_each_screen(
         }
         s.mytasklist = wibox.widget {
             tasklist,
+            -- bottom = dpi(1),
+            -- top = dpi(1),
+            left = dpi(8),
+            right = dpi(8),
             widget = wibox.container.margin
         }
 
