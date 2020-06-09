@@ -23,7 +23,7 @@ theme.fg_normal = "#eeffff"
 theme.fg_focus = "#eeffff"
 theme.fg_urgent = "#ff5370"
 theme.bg_normal = "#212121"
-theme.bg_focus = "#4a4a4a"
+theme.bg_focus = "#2d2d2d"
 theme.bg_urgent = "#3F3F3F"
 theme.bg_systray = theme.bg_normal
 -- }}}
@@ -39,13 +39,13 @@ theme.border_marked = "#3F3F3F"
 
 -- {{{ Titlebars
 theme.titlebar_fg_focus = "#b9c6c6"
-theme.titlebar_bg_focus = "#212121"
+theme.titlebar_bg_focus = "#2d2d2d"
 theme.titlebar_fg_normal = "#3F3F3F"
-theme.titlebar_bg_normal = "#212121"
+theme.titlebar_bg_normal = "#2d2d2d"
 -- }}}
 
 -- {{{ tasklist
-theme.tasklist_bg_focus = "#383838"
+theme.tasklist_bg_focus = "#2d2d2d"
 -- }}}
 -- There are other variable sets
 -- overriding the default one when
