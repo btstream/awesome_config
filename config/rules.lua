@@ -91,7 +91,7 @@ ruled.client.append_rules({
     {
         rule_any = {
             class = {
-                "Firefox",
+                "firefox",
                 "Chromium"
             },
         },
