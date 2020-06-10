@@ -3,6 +3,7 @@ local awful = require("awful")
 require("awful.autofocus")
 local wibox = require("wibox")
 local dpi = require("beautiful.xresources").apply_dpi
+local naughty = require("naughty")
 
 client.connect_signal(
     "request::titlebars",
@@ -62,7 +63,9 @@ client.connect_signal(
                     {},
                     1,
                     function()
-                        c.minimized = true
+                        if c == client.focus then
+                            c.minimized = true
+                        end
                     end
                 )
             )
@@ -83,6 +86,7 @@ client.connect_signal(
                     1,
                     function()
                         c.maximized = not c.maximized
+                        c:raise()
                     end
                 )
             )
