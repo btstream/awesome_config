@@ -3,7 +3,7 @@ local awful = require("awful")
 require("awful.autofocus")
 local wibox = require("wibox")
 local dpi = require("beautiful.xresources").apply_dpi
-local naughty = require("naughty")
+local beautiful = require("beautiful")
 
 client.connect_signal(
     "request::titlebars",
@@ -34,11 +34,7 @@ client.connect_signal(
             wibox.widget {
             text = "",
             font = "CaskaydiaCove Nerd Font Mono 15",
-            widget = wibox.widget.textbox
-        }
-
-        close_button:buttons(
-            gears.table.join(
+            buttons = gears.table.join(
                 awful.button(
                     {},
                     1,
@@ -46,19 +42,16 @@ client.connect_signal(
                         c:kill()
                     end
                 )
-            )
-        )
+            ),
+            widget = wibox.widget.textbox
+        }
 
         -- create a minimal button
         local min_button =
             wibox.widget {
             text = "",
             font = "CaskaydiaCove Nerd Font Mono 15",
-            widget = wibox.widget.textbox
-        }
-
-        min_button:buttons(
-            gears.table.join(
+            buttons = gears.table.join(
                 awful.button(
                     {},
                     1,
@@ -68,19 +61,16 @@ client.connect_signal(
                         end
                     end
                 )
-            )
-        )
+            ),
+            widget = wibox.widget.textbox
+        }
 
         -- create a maximized button
         local max_button =
             wibox.widget {
             text = "",
             font = "CaskaydiaCove Nerd Font Mono 15",
-            widget = wibox.widget.textbox
-        }
-
-        max_button:buttons(
-            gears.table.join(
+            buttons = gears.table.join(
                 awful.button(
                     {},
                     1,
@@ -89,10 +79,11 @@ client.connect_signal(
                         c:raise()
                     end
                 )
-            )
-        )
+            ),
+            widget = wibox.widget.textbox
+        }
 
-        awful.titlebar(c, {size = dpi(24)}):setup {
+        awful.titlebar(c, {size = dpi(24), font = beautiful.titlebar_font}):setup {
             {
                 {
                     close_button,
