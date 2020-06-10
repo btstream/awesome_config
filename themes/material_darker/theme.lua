@@ -1,10 +1,7 @@
 ---------------------------------------
 --  "material_darker" awesome theme  --
 --       By Zichen Liu (btstream)    --
---          Based on zenburn         --
 ---------------------------------------
-
--- local themes_path = require("gears.filesystem").get_themes_dir()
 local themes_path = os.getenv("HOME") .. "/.config/awesome/themes/"
 local dpi = require("beautiful.xresources").apply_dpi
 local gears = require("gears")
@@ -12,12 +9,12 @@ local gears = require("gears")
 -- {{{ Main
 local theme = {}
 theme.wallpaper = themes_path .. "material_darker/background.png"
-theme.icon_theme = "Papirus-Dark"
+theme.icon_theme = "Tela-Dark"
 -- }}}
 
--- {{{ Styles
+-- {{{ font
 theme.font = "CaskaydiaCove Nerd Font Mono 10"
--- theme.font       = "sans 10"
+-- }}}
 
 -- {{{ Colors
 theme.fg_normal = "#eeffff"
@@ -28,52 +25,41 @@ theme.bg_focus = "#2d2d2d"
 theme.bg_urgent = "#3F3F3F"
 -- }}}
 
--- {{{ Borders
+-- {{{ Borders for client
 theme.useless_gap = dpi(2.5)
 theme.gap_single_client = false
 theme.border_width = dpi(1)
-theme.border_normal = "#212121"
-theme.border_focus = "#3F3F3F"
-theme.border_marked = "#3F3F3F"
+theme.border_normal = theme.bg_normal
+theme.border_focus = theme.bg_urgent
+theme.border_marked = theme.bg_urgent
 -- }}}
 
--- {{{ Titlebars
+-- {{{ Titlebar
 theme.titlebar_fg_focus = "#eeffff"
 theme.titlebar_bg_focus = "#2d2d2d"
-theme.titlebar_fg_normal = "#3F3F3F"
+theme.titlebar_fg_normal = theme.bg_urgent
 theme.titlebar_bg_normal = "#242424"
 -- }}}
 
 -- {{{ tasklist
-theme.tasklist_bg_focus = "#3F3F3F"
+theme.tasklist_bg_focus = "#636363"
+theme.tasklist_shape_border_color = "#777777"
+theme.tasklist_font = "sans 9"
 -- }}}
--- There are other variable sets
--- overriding the default one when
--- defined, the sets are:
--- [taglist|tasklist]_[bg|fg]_[focus|urgent|occupied|empty|volatile]
--- titlebar_[normal|focus]
--- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
--- Example:
+
+-- {{{ taglist
+theme.taglist_font = "Linux Libertine G Bold 10"
 theme.taglist_fg_focus = "#ffffff"
 theme.taglist_bg_focus = "#82aaff"
 theme.taglist_fg_urgent = "#ffffff"
 theme.taglist_bg_urgent = "#ff5370"
+theme.taglist_bg_occupied = theme.tasklist_bg_focus
+theme.taglist_shape_border_color = theme.tasklist_shape_border_color
 -- }}}
 
 -- {{{ systray
 theme.bg_systray = theme.bg_normal
 theme.systray_icon_spacing = dpi(3)
--- }}}
-
--- {{{ Widgets
--- You can add as many variables as
--- you wish and access them by using
--- beautiful.variable in your rc.lua
---theme.fg_widget        = "#AECF96"
---theme.fg_center_widget = "#88A175"
---theme.fg_end_widget    = "#FF5656"
---theme.bg_widget        = "#494B4F"
---theme.border_widget    = "#3F3F3F"
 -- }}}
 
 -- {{{ Mouse finder
@@ -82,26 +68,15 @@ theme.mouse_finder_color = "#ff5370"
 -- }}}
 
 -- {{{ Menu
--- Variables set for theming the menu:
--- menu_[bg|fg]_[normal|focus]
--- menu_[border_color|border_width]
 theme.menu_height = dpi(15)
 theme.menu_width = dpi(100)
 -- }}}
 
--- {{{ Icons
--- {{{ Taglist
--- theme.taglist_squares_sel   = themes_path .. "material_darker/taglist/squarefz.png"
--- theme.taglist_squares_unsel = themes_path .. "material_darker/taglist/squarez.png"
---theme.taglist_squares_resize = "false"
--- }}}
-
 -- {{{ Misc
 theme.awesome_icon = themes_path .. "material_darker/start-menu.svg"
--- theme.menu_submenu_icon = themes_path .. "default/submenu.png"
 -- }}}
 
--- {{{ Layout
+-- {{{ Layout icons
 theme.layout_tile = themes_path .. "material_darker/layouts/tile.png"
 theme.layout_tileleft = themes_path .. "material_darker/layouts/tileleft.png"
 theme.layout_tilebottom = themes_path .. "material_darker/layouts/tilebottom.png"
@@ -134,41 +109,13 @@ theme.notification_shape = function(cr, w, h)
 end
 -- }}}
 
--- {{{ Titlebar
--- theme.titlebar_close_button_focus = themes_path .. "material_darker/titlebar/win10/close_focus.svg"
--- theme.titlebar_close_button_normal = themes_path .. "material_darker/titlebar/win10/close_normal.svg"
+-- {{{ textclock
+theme.textclock_font = "Iwona Cond Heavy 12"
+theme.textclock_format = "%Y-%m-%d %H:%M"
+-- }}}
 
--- theme.titlebar_minimize_button_normal = themes_path .. "material_darker/titlebar/win10/minimize_normal.svg"
--- theme.titlebar_minimize_button_focus = themes_path .. "material_darker/titlebar/win10/minimize_focus.svg"
-
--- theme.titlebar_ontop_button_focus_active = themes_path .. "material_darker/titlebar/win10/ontop_focus_active.svg"
--- theme.titlebar_ontop_button_normal_active = themes_path .. "material_darker/titlebar/win10/ontop_normal_active.svg"
--- theme.titlebar_ontop_button_focus_inactive = themes_path .. "material_darker/titlebar/win10/ontop_focus_inactive.svg"
--- theme.titlebar_ontop_button_normal_inactive = themes_path .. "material_darker/titlebar/win10/ontop_normal_inactive.svg"
-
--- theme.titlebar_sticky_button_focus_active = themes_path .. "material_darker/titlebar/win10/sticky_focus_active.svg"
--- theme.titlebar_sticky_button_normal_active = themes_path .. "material_darker/titlebar/win10/sticky_normal_active.svg"
--- theme.titlebar_sticky_button_focus_inactive = themes_path .. "material_darker/titlebar/win10/sticky_focus_inactive.svg"
--- theme.titlebar_sticky_button_normal_inactive =
---     themes_path .. "material_darker/titlebar/win10/sticky_normal_inactive.svg"
-
--- theme.titlebar_floating_button_focus_active = themes_path .. "material_darker/titlebar/win10/floating_focus_active.svg"
--- theme.titlebar_floating_button_normal_active =
---     themes_path .. "material_darker/titlebar/win10/floating_normal_active.svg"
--- theme.titlebar_floating_button_focus_inactive =
---     themes_path .. "material_darker/titlebar/win10/floating_focus_inactive.svg"
--- theme.titlebar_floating_button_normal_inactive =
---     themes_path .. "material_darker/titlebar/win10/floating_normal_inactive.svg"
-
--- theme.titlebar_maximized_button_focus_active =
---     themes_path .. "material_darker/titlebar/win10/maximized_focus_active.svg"
--- theme.titlebar_maximized_button_normal_active =
---     themes_path .. "material_darker/titlebar/win10/maximized_normal_active.svg"
--- theme.titlebar_maximized_button_focus_inactive =
---     themes_path .. "material_darker/titlebar/win10/maximized_focus_inactive.svg"
--- theme.titlebar_maximized_button_normal_inactive =
---     themes_path .. "material_darker/titlebar/win10/maximized_normal_inactive.svg"
--- -- }}}
+-- {{{ calendar
+theme.calendar_font = "Iwona Cond Heavy 9"
 -- }}}
 
 return theme
