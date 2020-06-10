@@ -7,8 +7,9 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 require("awful.hotkeys_popup.keys")
 local dpi = require("beautiful.xresources").apply_dpi
+local ruled = require("ruled")
 
-awful.rules.rules = {
+ruled.client.append_rules({
     -- All clients will match this rule.
     {
         rule = {},
@@ -17,7 +18,6 @@ awful.rules.rules = {
             border_color = beautiful.border_normal,
             focus = awful.client.focus.filter,
             raise = true,
-            -- buttons = clientbuttons,
             screen = awful.screen.preferred,
             placement = awful.placement.no_overlap + awful.placement.no_offscreen,
             size_hints_honor = false
@@ -43,7 +43,8 @@ awful.rules.rules = {
                 "veromix",
                 "xtightvncviewer",
                 "Pavucontrol",
-                "netease-cloud-music"
+                "netease-cloud-music",
+                "dolphin"
             },
             -- Note that the name property shown in xprop might be set slightly after creation of the client
             -- and the name shown there might not match defined rules here.
@@ -84,10 +85,83 @@ awful.rules.rules = {
             c.maximized, c.maximized_vertical, c.maximized_horizontal = false, false, false
             awful.client.setslave(c)
         end
-    }
+    },
 
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
-}
+    -- Firefox and chrome all in workspace 2
+    {
+        rule_any = {
+            class = {
+                "Firefox",
+                "Chromium"
+            },
+        },
+        properties = { screen = 1, tag = "2" }
+    },
+    -- all development tools in workspace3
+    {
+        rule_any = {
+            class = {
+                "jetbrains-idea",
+                "DBeaver",
+                "Code - Insiders",
+                "nvim-qt"
+            },
+        },
+        properties = { screen = 1, tag = "3" }
+    },
+
+    -- double cmd in workspace4
+    {
+        rule_any = {
+            class = {
+                "Doublecmd"
+            },
+        },
+        properties = { screen = 1, tag = "4" }
+    },
+
+    -- all document processors to workspace5
+    {
+        rule_any = {
+            class = {
+                "Soffice",
+                "Wps",
+                "Wpp",
+                "Et",
+                "Joplin",
+                "Okular"
+            },
+        },
+        properties = { screen = 1, tag = "5" }
+    },
+
+    {
+        rule_any = {
+            class = {
+                "vlc",
+                "netease-cloud-music",
+                "Netease-cloud-music-gtk"
+            },
+        },
+        properties = { screen = 1, tag = "6" }
+    },
+
+    {
+        rule_any = {
+            class = {
+                "Thunderbird"
+            },
+        },
+        properties = { screen = 1, tag = "8" }
+    },
+
+    {
+        rule_any = {
+            instance = {
+                "wechat.exe"
+            },
+        },
+        properties = { screen = 1, tag = "9" }
+    },
+})
 -- }}}

@@ -83,8 +83,6 @@ keybindings.globalkeys = gears.table.join(
         {description = "open a terminal", group = "launcher"}
     ),
     awful.key({modkey, "Control"}, "r", awesome.restart, {description = "reload awesome", group = "awesome"}),
-    -- awful.key({ modkey, "Shift"   }, "q", awesome.quit,
-    -- {description = "quit awesome", group = "awesome"}),
 
     awful.key(
         {modkey},
@@ -134,8 +132,6 @@ keybindings.globalkeys = gears.table.join(
         end,
         {description = "decrease the number of columns", group = "layout"}
     ),
-    -- awful.key({ modkey, "Alt"     }, "space", function () awful.layout.inc( 1)                end,
-    -- {description = "select next", group = "layout"}),
     awful.key(
         {modkey, "Shift"},
         "space",
@@ -144,7 +140,6 @@ keybindings.globalkeys = gears.table.join(
         end,
         {description = "select previous", group = "layout"}
     ),
-    -- awful.key({modkey}, "space", function() awful.spawn("/usr/bin/fcitx-remote -T") end, {description="fcitx change immethod", group="launcher"}),
 
     awful.key(
         {modkey, "Control"},
@@ -159,14 +154,14 @@ keybindings.globalkeys = gears.table.join(
         {description = "restore minimized", group = "client"}
     ),
     -- Prompt
-    awful.key(
-        {modkey},
-        "r",
-        function()
-            awful.screen.focused().mypromptbox:run()
-        end,
-        {description = "run prompt", group = "launcher"}
-    ),
+    -- awful.key(
+    --     {modkey},
+    --     "r",
+    --     function()
+    --         awful.screen.focused().mypromptbox:run()
+    --     end,
+    --     {description = "run prompt", group = "launcher"}
+    -- ),
     awful.key(
         {modkey},
         "x",
@@ -180,15 +175,23 @@ keybindings.globalkeys = gears.table.join(
         end,
         {description = "lua execute prompt", group = "awesome"}
     ),
-    -- Menubar
     awful.key(
-        {modkey},
-        "p",
+        {"Mod1", modkey},
+        "space",
         function()
-            menubar.show()
+            client.focus.floating = not client.focus.floating
         end,
-        {description = "show the menubar", group = "launcher"}
+        {description = "toggle floating", group = "client"}
     ),
+    -- Menubar
+    -- awful.key(
+    --     {modkey},
+    --     "p",
+    --     function()
+    --         menubar.show()
+    --     end,
+    --     {description = "show the menubar", group = "launcher"}
+    -- ),
     -- rofi
     awful.key(
         {modkey},
