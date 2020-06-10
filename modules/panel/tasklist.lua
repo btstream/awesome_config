@@ -6,6 +6,16 @@ local dpi = require("beautiful.xresources").apply_dpi
 
 local tasklist = {}
 
+local function update_indicator(self, c, index, objects)
+    if c.active then
+        self:get_children_by_id("indicator_left")[1].bg = beautiful.tasklist_bg_indicator_focus
+        self:get_children_by_id("indicator_right")[1].bg = beautiful.tasklist_bg_indicator_focus
+    else
+        self:get_children_by_id("indicator_left")[1].bg = beautiful.tasklist_bg_indicator
+        self:get_children_by_id("indicator_right")[1].bg = beautiful.tasklist_bg_indicator
+    end
+end
+
 function tasklist.setup(screen)
     local tasklist_buttons = gears.table.join(
         awful.button(
@@ -46,14 +56,13 @@ function tasklist.setup(screen)
         screen = screen,
         filter = awful.widget.tasklist.filter.currenttags,
         buttons = tasklist_buttons,
-        style = {
-            shape = function(cr, w, h)
-                gears.shape.rounded_rect(cr, w, h, 2)
-            end,
-            shape_border_width = dpi(1),
-        },
+        -- style = {
+        --     shape = function(cr, w, h)
+        --         gears.shape.rounded_rect(cr, w, h, 2)
+        --     end,
+        -- },
         layout = {
-            spacing = dpi(1),
+            spacing = dpi(2),
             max_widget_size = dpi(240),
             layout = wibox.layout.flex.horizontal
         },
@@ -62,24 +71,55 @@ function tasklist.setup(screen)
                 {
                     {
                         {
-                            id = "icon_role",
-                            widget = wibox.widget.imagebox
+                            wibox.widget.base.make_widget(),
+                            forced_width = dpi(4),
+                            id = 'indicator_left',
+                            widget = wibox.container.background,
                         },
-                        margins = dpi(5),
+                        -- top = dpi(1),
+                        -- bottom = dpi(1),
                         widget = wibox.container.margin
                     },
                     {
-                        id = "text_role",
-                        widget = wibox.widget.textbox
+                        {
+                            {
+                                {
+                                    id = "icon_role",
+                                    widget = wibox.widget.imagebox
+                                },
+                                margins = dpi(5),
+                                widget = wibox.container.margin
+                            },
+                            {
+                                id = "text_role",
+                                widget = wibox.widget.textbox
+                            },
+                            layout = wibox.layout.fixed.horizontal
+                        },
+                        right = dpi(5),
+                        widget = wibox.container.margin
                     },
-                    layout = wibox.layout.fixed.horizontal
+                    {
+                        {
+                            wibox.widget.base.make_widget(),
+                            forced_width = dpi(4),
+                            id = 'indicator_right',
+                            widget = wibox.container.background,
+                        },
+                        -- top = dpi(1),
+                        -- bottom = dpi(1),
+                        widget = wibox.container.margin
+                    },
+                    layout = wibox.layout.align.horizontal
                 },
-                left = dpi(8),
-                right = dpi(8),
+                -- left = dpi(0),
+                -- right = dpi(8),
                 widget = wibox.container.margin
             },
             id = "background_role",
-            widget = wibox.container.background
+            widget = wibox.container.background,
+            create_callback = update_indicator,
+            update_callback = update_indicator
         }
     }
 
@@ -87,8 +127,8 @@ function tasklist.setup(screen)
         mytasklist,
         left = dpi(8),
         right = dpi(8),
-        bottom = dpi(1),
-        top = dpi(1),
+        bottom = dpi(2),
+        top = dpi(2),
         widget = wibox.container.margin
     }
 end

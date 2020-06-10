@@ -41,20 +41,23 @@ theme.titlebar_fg_normal = theme.bg_urgent
 theme.titlebar_bg_normal = "#242424"
 -- }}}
 
--- {{{ tasklist
-theme.tasklist_bg_focus = "#636363"
-theme.tasklist_shape_border_color = "#777777"
-theme.tasklist_font = "sans 9"
--- }}}
-
 -- {{{ taglist
 theme.taglist_font = "Linux Libertine G Bold 10"
 theme.taglist_fg_focus = "#ffffff"
 theme.taglist_bg_focus = "#82aaff"
 theme.taglist_fg_urgent = "#ffffff"
 theme.taglist_bg_urgent = "#ff5370"
-theme.taglist_bg_occupied = theme.tasklist_bg_focus
+theme.taglist_bg_occupied = "#636363"
 theme.taglist_shape_border_color = theme.tasklist_shape_border_color
+-- }}}
+
+-- {{{ tasklist
+theme.tasklist_fg_normal = theme.titlebar_fg_normal
+theme.tasklist_bg_focus = theme.bg_urgent
+theme.tasklist_bg_indicator = "#383838"
+theme.tasklist_bg_indicator_focus = theme.taglist_bg_focus
+theme.tasklist_shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, 2) end
+theme.tasklist_font = "sans 9"
 -- }}}
 
 -- {{{ systray
@@ -104,9 +107,7 @@ theme.notification_icon_size = dpi(70)
 theme.notification_bg = "#212121"
 theme.notification_border_color = "#3F3F3F"
 theme.notification_opacity = 0.75
-theme.notification_shape = function(cr, w, h)
-    gears.shape.rounded_rect(cr, w, h, 4)
-end
+theme.notification_shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, 4) end
 -- }}}
 
 -- {{{ textclock
