@@ -9,7 +9,7 @@ local keybindings = require("config.keybindings")
 local taglist = {}
 
 for i = 1, 9 do
-    keybindings.append_globalkeys(gears.table.join(
+    awful.keyboard.append_global_keybindings({
         -- globalkeys,
         -- View tag only.
         awful.key(
@@ -65,7 +65,7 @@ for i = 1, 9 do
             end,
             {description = "toggle focused client on tag #" .. i, group = "tag"}
         )
-    ))
+    })
 end
 
 function taglist.setup(screen)

@@ -57,9 +57,7 @@ require("modules.titlebar")
 
 -- {{{ setup mouse and keybindings
 require("config.mouse")
-local keybindings = require("config.keybindings")
--- setup keybindings at last, which may be modified by other modules
-keybindings.setup()
+require("config.keybindings")
 -- }}}
 
 require("config.rules")
