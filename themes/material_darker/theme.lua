@@ -22,7 +22,7 @@ theme.fg_focus = "#eeffff"
 theme.fg_urgent = "#ff5370"
 theme.bg_normal = "#212121"
 theme.bg_focus = "#2d2d2d"
-theme.bg_urgent = "#3F3F3F"
+theme.bg_urgent = theme.bg_normal
 -- }}}
 
 -- {{{ Borders for client
@@ -60,8 +60,10 @@ theme.taglist_shape_border_color_occupied = theme.taglist_bg_occupied
 -- {{{ tasklist
 theme.tasklist_fg_normal = theme.taglist_bg_occupied
 theme.tasklist_bg_focus = theme.bg_urgent
+theme.tasklist_fg_urgent = theme.fg_normal
 theme.tasklist_bg_indicator = "#383838"
 theme.tasklist_bg_indicator_focus = theme.taglist_bg_focus
+theme.tasklist_bg_indicator_urgent = theme.taglist_bg_urgent
 theme.tasklist_shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, 2) end
 theme.tasklist_font = "sans 9"
 -- }}}

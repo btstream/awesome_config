@@ -10,6 +10,9 @@ local function update_indicator(self, c, index, objects)
     if c.active then
         self:get_children_by_id("indicator_left")[1].bg = beautiful.tasklist_bg_indicator_focus
         self:get_children_by_id("indicator_right")[1].bg = beautiful.tasklist_bg_indicator_focus
+    elseif c.urgent then
+        self:get_children_by_id("indicator_left")[1].bg = beautiful.tasklist_bg_indicator_urgent
+        self:get_children_by_id("indicator_right")[1].bg = beautiful.tasklist_bg_indicator_urgent
     else
         self:get_children_by_id("indicator_left")[1].bg = beautiful.tasklist_bg_indicator
         self:get_children_by_id("indicator_right")[1].bg = beautiful.tasklist_bg_indicator
