@@ -38,7 +38,7 @@ theme.border_marked = theme.bg_urgent
 theme.titlebar_font = "sans 9"
 theme.titlebar_fg_focus = "#eeffff"
 theme.titlebar_bg_focus = "#2d2d2d"
-theme.titlebar_fg_normal = theme.bg_urgent
+theme.titlebar_fg_normal = "#5F5F5F"
 theme.titlebar_bg_normal = "#242424"
 -- }}}
 
