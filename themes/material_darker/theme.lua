@@ -58,7 +58,7 @@ theme.taglist_shape_border_color_occupied = theme.taglist_bg_occupied
 -- }}}
 
 -- {{{ tasklist
-theme.tasklist_fg_normal = theme.titlebar_fg_normal
+theme.tasklist_fg_normal = theme.taglist_bg_occupied
 theme.tasklist_bg_focus = theme.bg_urgent
 theme.tasklist_bg_indicator = "#383838"
 theme.tasklist_bg_indicator_focus = theme.taglist_bg_focus
