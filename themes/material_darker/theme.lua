@@ -44,12 +44,17 @@ theme.titlebar_bg_normal = "#242424"
 
 -- {{{ taglist
 theme.taglist_font = "Linux Libertine G Bold 10"
-theme.taglist_fg_focus = "#ffffff"
+theme.taglist_fg_focus = theme.bg_urgent
 theme.taglist_bg_focus = "#82aaff"
-theme.taglist_fg_urgent = "#ffffff"
+theme.taglist_fg_urgent = theme.bg_urgent
 theme.taglist_bg_urgent = "#ff5370"
 theme.taglist_bg_occupied = "#636363"
-theme.taglist_shape_border_color = theme.tasklist_shape_border_color
+theme.taglist_shape = gears.shape.circle
+theme.taglist_shape_border_width = dpi(1)
+theme.taglist_shape_border_color = "#777777"
+theme.taglist_shape_border_color_focus = theme.taglist_bg_focus
+theme.taglist_shape_border_color_urgent = theme.taglist_bg_urgent
+theme.taglist_shape_border_color_occupied = theme.taglist_bg_occupied
 -- }}}
 
 -- {{{ tasklist

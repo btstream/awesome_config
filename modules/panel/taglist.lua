@@ -123,14 +123,6 @@ function taglist.setup(screen)
     local tag_indicators = awful.widget.taglist {
         screen = screen,
         filter = awful.widget.taglist.filter.all,
-        -- define tag indicators shape, using circle
-        style = {
-            shape = gears.shape.circle,
-            shape_border_width = dpi(1),
-            shape_border_color = "#777777",
-            font = beautiful.taglist_fonts
-        },
-        -- spacing between indicators
         layout = {
             spacing = dpi(2),
             layout = wibox.layout.flex.horizontal

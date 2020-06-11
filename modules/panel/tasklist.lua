@@ -56,11 +56,6 @@ function tasklist.setup(screen)
         screen = screen,
         filter = awful.widget.tasklist.filter.currenttags,
         buttons = tasklist_buttons,
-        -- style = {
-        --     shape = function(cr, w, h)
-        --         gears.shape.rounded_rect(cr, w, h, 2)
-        --     end,
-        -- },
         layout = {
             spacing = dpi(2),
             max_widget_size = dpi(240),
