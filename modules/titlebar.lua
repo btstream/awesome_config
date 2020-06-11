@@ -107,7 +107,9 @@ client.connect_signal(
                 layout = wibox.layout.flex.horizontal
             },
             {
-                widget = wibox.container.margin
+                wibox.widget.base.make_widget(),
+                forced_width = dpi(60),
+                widget = wibox.container.background
             },
             layout = wibox.layout.align.horizontal
         }
