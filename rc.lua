@@ -16,7 +16,7 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/material_darker/the
 -- }}}
 
 -- {{{ global configs
-terminal = "urxvtc"
+terminal = "qterminal"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
