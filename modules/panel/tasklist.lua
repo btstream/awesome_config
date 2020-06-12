@@ -61,7 +61,7 @@ function tasklist.setup(screen)
         buttons = tasklist_buttons,
         layout = {
             spacing = dpi(2),
-            max_widget_size = dpi(240),
+            -- max_widget_size = dpi(240),
             layout = wibox.layout.flex.horizontal
         },
         widget_template = {
