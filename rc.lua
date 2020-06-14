@@ -10,6 +10,7 @@ local menubar = require("menubar")
 require("awful.hotkeys_popup.keys")
 local dpi = require("beautiful.xresources").apply_dpi
 require("error_check")
+local naughty = require("naughty")
 
 -- {{{ load themes
 beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/material_darker/theme.lua")
@@ -26,26 +27,12 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 require("modules.layout")
 -- }}}
 
--- {{{ default wallpapers
-local function set_wallpaper(s)
-    -- Wallpaper
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
-        gears.wallpaper.maximized(wallpaper, s, true)
-    end
-end
-screen.connect_signal("property::geometry", set_wallpaper)
--- }}}
+require("modules.wallpaper")
 
 -- {{{ setup main screens
 local panel = require("modules.panel")
-awful.screen.connect_for_each_screen(
+screen.connect_signal("request::desktop_decoration",
     function(s)
-        set_wallpaper(s)
-        -- set screen paddings
         s.padding = {left = dpi(10), right = dpi(10), top = dpi(10), bottom = dpi(10)}
         -- add default panel
         panel.setup(s)
