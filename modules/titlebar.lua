@@ -1,6 +1,5 @@
 local gears = require("gears")
 local awful = require("awful")
-require("awful.autofocus")
 local wibox = require("wibox")
 local dpi = require("beautiful.xresources").apply_dpi
 local beautiful = require("beautiful")
@@ -9,8 +8,7 @@ client.connect_signal(
     "request::titlebars",
     function(c)
         -- buttons for the titlebar
-        local buttons =
-            gears.table.join(
+        local buttons ={
             awful.button(
                 {},
                 1,
@@ -27,7 +25,7 @@ client.connect_signal(
                     awful.mouse.client.resize(c)
                 end
             )
-        )
+        }
 
         -- create a close button
         local close_button =
@@ -38,6 +36,7 @@ client.connect_signal(
                 awful.button(
                     {},
                     1,
+                    nil,
                     function()
                         c:kill()
                     end
@@ -55,10 +54,9 @@ client.connect_signal(
                 awful.button(
                     {},
                     1,
+                    nil,
                     function()
-                        if c == client.focus then
-                            c.minimized = true
-                        end
+                        c.minimized = true
                     end
                 )
             ),
@@ -74,6 +72,7 @@ client.connect_signal(
                 awful.button(
                     {},
                     1,
+                    nil,
                     function()
                         c.maximized = not c.maximized
                         c:raise()
