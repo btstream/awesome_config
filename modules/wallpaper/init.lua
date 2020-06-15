@@ -1,7 +1,5 @@
 local gears = require("gears")
-local awful = require("awful")
 local beautiful = require("beautiful")
-local menubar = require("menubar")
 
 local function set_wallpaper(s)
     if beautiful.wallpaper then
@@ -18,4 +16,3 @@ screen.connect_signal("request::wallpaper", set_wallpaper)
 screen.connect_signal("request::desktop_decoration", function(s)
     set_wallpaper(s)
 end)
- 
