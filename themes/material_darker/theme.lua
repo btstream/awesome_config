@@ -116,7 +116,8 @@ theme.notification_icon_size = dpi(70)
 theme.notification_bg = "#212121"
 theme.notification_border_color = "#3F3F3F"
 theme.notification_opacity = 0.75
-theme.notification_shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, 4) end
+theme.notification_shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, 8) end
+theme.notification_font = "sans 10"
 -- }}}
 
 -- {{{ textclock
