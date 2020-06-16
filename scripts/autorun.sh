@@ -8,7 +8,7 @@ function run {
 }
 
 run /usr/bin/xsettingsd
-run ~/.config/i3/scripts/bingwallpaper.sh 
+# run ~/.config/i3/scripts/bingwallpaper.sh 
 run /usr/bin/urxvtd -q -f -o 
 run /usr/bin/picom --config ~/.config/compton/compton.conf --experimental-backends 
 run /usr/bin/nm-applet --sm-disable
