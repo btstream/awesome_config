@@ -23,8 +23,11 @@ end
 
 check_path()
 -- if cache path does not exist, create a link from default theme
-if not gears.filesystem.file_readable(bingwallpaper.wallpaper) then
-    awful.spawn.with_shell("ln -sf " .. beautiful.wallpaper .. " " .. bingwallpaper.wallpaper)
+function bingwallpaper:set_wallpaper(s)
+    if not gears.filesystem.file_readable(bingwallpaper.wallpaper) then
+        awful.spawn.with_shell("ln -sf " .. beautiful.wallpaper .. " " .. bingwallpaper.wallpaper)
+    end
+    gears.wallpaper.maximized(bingwallpaper.wallpaper, s, true)
 end
 
 function bingwallpaper.update(size)
@@ -60,7 +63,7 @@ function bingwallpaper.update(size)
         if gears.filesystem.file_readable(saved_image) then
             return false
         end
-        
+
         -- creata a temp file to save
         local tmp_file = os.tmpname()
 
@@ -85,13 +88,14 @@ function bingwallpaper.update(size)
             else
                 awful.spawn.with_shell("mv " .. tmp_file .. " " .. bingwallpaper.wallpaper)
             end
+            awful.spawn.with_shell("betterlockscreen -u " .. bingwallpaper.wallpaper)
             return true
         else
             return false
         end
 
     else
-        return true
+        return false
     end
 end
 
