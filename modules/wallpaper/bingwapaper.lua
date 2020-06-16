@@ -8,7 +8,7 @@ local META_URL = "https://www.bing.com/HPImageArchive.aspx?&format=js&idx=0&mkt=
 local bingwallpaper = {
     savefolder = os.getenv("HOME") .. "/Pictures/Bing",
     -- cache_dir = gears.filesystem.get_xdg_cache_home()
-    save_format = "png"
+    save_format = "jpg"
 }
 
 -- local function check_path()
