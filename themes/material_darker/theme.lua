@@ -109,9 +109,9 @@ theme.layout_cornerse = themes_path .. "material_darker/layouts/cornerse.png"
 
 -- {{{ notifications
 theme.notification_width = dpi(320)
-theme.notification_max_width = dpi(320)
+theme.notification_max_width = dpi(380)
 theme.notification_height = dpi(80)
-theme.notification_max_height = dpi(110)
+theme.notification_max_height = dpi(120)
 theme.notification_icon_size = dpi(70)
 theme.notification_bg = "#212121"
 theme.notification_border_color = "#3F3F3F"
