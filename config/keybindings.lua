@@ -152,15 +152,6 @@ awful.keyboard.append_global_keybindings({
         end,
         {description = "restore minimized", group = "client"}
     ),
-    -- Prompt
-    -- awful.key(
-    --     {modkey},
-    --     "r",
-    --     function()
-    --         awful.screen.focused().mypromptbox:run()
-    --     end,
-    --     {description = "run prompt", group = "launcher"}
-    -- ),
     awful.key(
         {modkey},
         "x",
@@ -174,23 +165,6 @@ awful.keyboard.append_global_keybindings({
         end,
         {description = "lua execute prompt", group = "awesome"}
     ),
-    awful.key(
-        {"Mod1", modkey},
-        "space",
-        function()
-            client.focus.floating = not client.focus.floating
-        end,
-        {description = "toggle floating", group = "client"}
-    ),
-    -- Menubar
-    -- awful.key(
-    --     {modkey},
-    --     "p",
-    --     function()
-    --         menubar.show()
-    --     end,
-    --     {description = "show the menubar", group = "launcher"}
-    -- ),
     -- rofi
     awful.key(
         {modkey},
