@@ -18,3 +18,4 @@ run /usr/bin/flameshot
 run ~/.config/awesome/scripts/nutstore.sh
 run pasystray
 run /usr/bin/fcitx-autostart
+run /usr/bin/fcitx5 -d

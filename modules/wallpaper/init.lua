@@ -29,8 +29,6 @@ if use_bing_wallpapper then
             local g = screen[1].geometry
             if bingwallpaper.update("" .. g.width .. "x" .. g.height) then
                 for s in screen do
-                    -- need to execute two times to update wall paper, does not know why
-                    bingwallpaper.set_wallpaper(s)
                     bingwallpaper.set_wallpaper(s)
                 end
             end

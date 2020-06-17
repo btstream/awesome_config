@@ -25,7 +25,7 @@ check_path()
 -- if cache path does not exist, create a link from default theme
 function bingwallpaper:set_wallpaper(s)
     if not gears.filesystem.file_readable(bingwallpaper.wallpaper) then
-        awful.spawn.with_shell("ln -sf " .. beautiful.wallpaper .. " " .. bingwallpaper.wallpaper)
+        os.execute("ln -sf " .. beautiful.wallpaper .. " " .. bingwallpaper.wallpaper)
     end
     gears.wallpaper.maximized(bingwallpaper.wallpaper, s, true)
 end
@@ -78,15 +78,15 @@ function bingwallpaper.update(size)
         if res_status == 200 then
             -- move file to saved path
             if (bingwallpaper.savefolder ~= nil) then
-                awful.spawn.with_shell("mv " .. tmp_file .. " " .. saved_image)
+                os.execute("mv " .. tmp_file .. " " .. saved_image)
                 -- write copyright infomation
                 local copyright_file = io.open(saved_copyright, "w")
                 copyright_file:write(copyright)
                 copyright_file:close()
                 -- linked to a temp file
-                awful.spawn.with_shell("ln -sf " .. saved_image .. " " .. bingwallpaper.wallpaper)
+                os.execute("ln -sf " .. saved_image .. " " .. bingwallpaper.wallpaper)
             else
-                awful.spawn.with_shell("mv " .. tmp_file .. " " .. bingwallpaper.wallpaper)
+                os.execute("mv " .. tmp_file .. " " .. bingwallpaper.wallpaper)
             end
             awful.spawn.with_shell("betterlockscreen -u " .. bingwallpaper.wallpaper)
             return true
