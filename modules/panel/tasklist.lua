@@ -60,7 +60,7 @@ function tasklist.setup(screen)
         filter = awful.widget.tasklist.filter.currenttags,
         buttons = tasklist_buttons,
         layout = {
-            spacing = dpi(2),
+            spacing = dpi(1),
             -- max_widget_size = dpi(240),
             layout = wibox.layout.flex.horizontal
         },
