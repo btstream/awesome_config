@@ -55,8 +55,11 @@ ruled.client.append_rules({
                 "AlarmWindow", -- Thunderbird's calendar.
                 "ConfigManager", -- Thunderbird's about:config.
                 "pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
-                "TfrmFileOp",
-                "TfrmOptions"
+                "TfrmFileOp", -- doublecmd
+                "TfrmOptions" -- doublecmd
+            },
+            instance = {
+                "Msgcompose" -- Thunderbird's compositing
             }
         },
         properties = {floating = true}
