@@ -119,7 +119,8 @@ ruled.client.append_rules({
     {
         rule_any = {
             class = {
-                "Doublecmd"
+                "Doublecmd",
+                "pcmanfm-qt"
             },
         },
         properties = { screen = 1, tag = "4" }
@@ -134,8 +135,11 @@ ruled.client.append_rules({
                 "Wpp",
                 "Et",
                 "Joplin",
-                "Okular"
+                "okular"
             },
+            instance = {
+                "libreoffice"
+            }
         },
         properties = { screen = 1, tag = "5" }
     },
