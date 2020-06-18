@@ -82,7 +82,7 @@ client.connect_signal(
             widget = wibox.widget.textbox
         }
 
-        awful.titlebar(c, {size = dpi(24), font = beautiful.titlebar_font}):setup {
+        awful.titlebar(c, {size = dpi(24)}):setup {
             {
                 {
                     close_button,
@@ -92,15 +92,19 @@ client.connect_signal(
                     spacing = dpi(6)
                 },
                 left = dpi(10),
-                bottom = dpi(2),
+                bottom = dpi(4),
                 widget = wibox.container.margin
             },
             {
                 -- Middle
                 {
-                    -- Title
-                    align = "center",
-                    widget = awful.titlebar.widget.titlewidget(c)
+                    {
+                        -- Title
+                        align = "center",
+                        widget = awful.titlebar.widget.titlewidget(c)
+                    },
+                    bottom = dpi(4),
+                    widget = wibox.container.margin
                 },
                 buttons = buttons,
                 layout = wibox.layout.flex.horizontal

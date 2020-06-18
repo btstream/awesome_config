@@ -13,7 +13,7 @@ theme.icon_theme = "Tela-Dark"
 -- }}}
 
 -- {{{ font
-theme.font = "CaskaydiaCove Nerd Font Mono 10"
+theme.font = "sans 10"
 -- }}}
 
 -- {{{ Colors
