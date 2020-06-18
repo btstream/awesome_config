@@ -70,7 +70,7 @@ function tasklist.setup(screen)
                     {
                         {
                             wibox.widget.base.make_widget(),
-                            forced_width = dpi(4),
+                            forced_width = dpi(2),
                             id = 'indicator_left',
                             widget = wibox.container.background,
                         },
@@ -100,7 +100,7 @@ function tasklist.setup(screen)
                     {
                         {
                             wibox.widget.base.make_widget(),
-                            forced_width = dpi(4),
+                            forced_width = dpi(2),
                             id = 'indicator_right',
                             widget = wibox.container.background,
                         },
