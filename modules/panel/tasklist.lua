@@ -125,8 +125,8 @@ function tasklist.setup(screen)
         mytasklist,
         left = dpi(8),
         right = dpi(4),
-        bottom = dpi(2),
-        top = dpi(2),
+        -- bottom = dpi(2),
+        -- top = dpi(2),
         widget = wibox.container.margin
     }
 end
