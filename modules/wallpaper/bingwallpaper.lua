@@ -25,15 +25,27 @@ check_path()
 -- if cache path does not exist, create a link from default theme
 function bingwallpaper:set_wallpaper(s)
     if not gears.filesystem.file_readable(bingwallpaper.wallpaper) then
-        os.execute("ln -sf " .. beautiful.wallpaper .. " " .. bingwallpaper.wallpaper)
+        awful.spawn.easy_async_with_shell(
+            "ln -sf " .. beautiful.wallpaper .. " " .. bingwallpaper.wallpaper,
+            function()
+                gears.wallpaper.maximized(bingwallpaper.wallpaper, s, true)
+                awful.spawn.with_shell("betterlockscreen -u " .. beautiful.wallpaper)
+            end
+        )
+    else
+        gears.wallpaper.maximized(bingwallpaper.wallpaper, s, true)
     end
-    gears.wallpaper.maximized(bingwallpaper.wallpaper, s, true)
 end
 
-function bingwallpaper.update(size)
+function bingwallpaper.update(size, callback)
     -- check is path exist
     local meta_info = nil
     local retry = -1
+    callback = callback or function() 
+        for s in screen do
+            s:emit_signal("request::wallpaper")
+        end
+    end
 
     -- get meta info
     while meta_info == nil do
@@ -61,7 +73,7 @@ function bingwallpaper.update(size)
         local saved_copyright = bingwallpaper.savefolder .. "/bing-wallpaper-" .. enddate .. ".txt"
 
         if gears.filesystem.file_readable(saved_image) then
-            return false
+            return
         end
 
         -- creata a temp file to save
@@ -75,27 +87,25 @@ function bingwallpaper.update(size)
             res_status = download_image(tmp_file, back_url)
         end
 
+        local save_image_cmd = "mv " .. tmp_file .. " " .. saved_image .. " && ln -sf " .. saved_image .. " " .. bingwallpaper.wallpaper
         if res_status == 200 then
             -- move file to saved path
             if (bingwallpaper.savefolder ~= nil) then
-                os.execute("mv " .. tmp_file .. " " .. saved_image)
                 -- write copyright infomation
                 local copyright_file = io.open(saved_copyright, "w")
                 copyright_file:write(copyright)
                 copyright_file:close()
-                -- linked to a temp file
-                os.execute("ln -sf " .. saved_image .. " " .. bingwallpaper.wallpaper)
             else
-                os.execute("mv " .. tmp_file .. " " .. bingwallpaper.wallpaper)
+                save_image_cmd = "mv " .. tmp_file .. " " .. bingwallpaper.wallpaper
             end
-            awful.spawn.with_shell("betterlockscreen -u " .. bingwallpaper.wallpaper)
-            return true
-        else
-            return false
+            awful.spawn.easy_async_with_shell(
+                save_image_cmd,
+                function()
+                    callback()
+                    awful.spawn.with_shell("betterlockscreen -u " .. bingwallpaper.wallpaper)
+                end
+            )
         end
-
-    else
-        return false
     end
 end
 

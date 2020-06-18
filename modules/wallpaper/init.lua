@@ -27,11 +27,7 @@ end)
 if use_bing_wallpapper then
     local function update_wallpaper()
             local g = screen[1].geometry
-            if bingwallpaper.update("" .. g.width .. "x" .. g.height) then
-                for s in screen do
-                    bingwallpaper.set_wallpaper(s)
-                end
-            end
+            bingwallpaper.update("" .. g.width .. "x" .. g.height)
         end
 
     gears.timer {
