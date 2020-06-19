@@ -35,7 +35,6 @@ theme.border_marked = theme.bg_urgent
 -- }}}
 
 -- {{{ Titlebar
-theme.titlebar_font = "sans 9"
 theme.titlebar_fg_focus = "#eeffff"
 theme.titlebar_bg_focus = "#2d2d2d"
 theme.titlebar_fg_normal = "#5F5F5F"
@@ -43,6 +42,7 @@ theme.titlebar_bg_normal = "#242424"
 -- }}}
 
 -- {{{ taglist
+theme.taglist_font = "Libertinus Sans Bold 10"
 theme.taglist_fg_focus = theme.bg_urgent
 theme.taglist_bg_focus = "#82aaff"
 theme.taglist_fg_urgent = theme.bg_urgent
