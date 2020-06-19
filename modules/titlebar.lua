@@ -103,17 +103,13 @@ client.connect_signal(
                         align = "center",
                         widget = awful.titlebar.widget.titlewidget(c)
                     },
-                    bottom = dpi(4),
+                    bottom = dpi(2),
                     widget = wibox.container.margin
                 },
                 buttons = buttons,
                 layout = wibox.layout.flex.horizontal
             },
-            {
-                wibox.widget.base.make_widget(),
-                forced_width = dpi(60),
-                widget = wibox.container.background
-            },
+            nil,
             layout = wibox.layout.align.horizontal
         }
     end
