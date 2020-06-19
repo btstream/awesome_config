@@ -27,7 +27,7 @@ theme.bg_urgent = theme.bg_normal
 
 -- {{{ Borders for client
 theme.useless_gap = dpi(2.5)
-theme.gap_single_client = false
+-- theme.gap_single_client = false
 theme.border_width = dpi(1)
 theme.border_normal = theme.bg_normal
 theme.border_focus = theme.bg_urgent

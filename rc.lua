@@ -33,7 +33,7 @@ require("modules.wallpaper")
 local panel = require("modules.panel")
 screen.connect_signal("request::desktop_decoration",
     function(s)
-        s.padding = {left = dpi(10), right = dpi(10), top = dpi(10), bottom = dpi(10)}
+        -- s.padding = {left = dpi(10), right = dpi(10), top = dpi(10), bottom = dpi(10)}
         -- add default panel
         panel.setup(s)
     end

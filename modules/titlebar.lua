@@ -4,6 +4,8 @@ local wibox = require("wibox")
 local dpi = require("beautiful.xresources").apply_dpi
 local beautiful = require("beautiful")
 
+local button_font = "CaskaydiaCove Nerd Font Mono 14"
+
 client.connect_signal(
     "request::titlebars",
     function(c)
@@ -31,7 +33,7 @@ client.connect_signal(
         local close_button =
             wibox.widget {
             text = "",
-            font = "CaskaydiaCove Nerd Font Mono 15",
+            font = button_font,
             buttons = gears.table.join(
                 awful.button(
                     {},
@@ -49,7 +51,7 @@ client.connect_signal(
         local min_button =
             wibox.widget {
             text = "",
-            font = "CaskaydiaCove Nerd Font Mono 15",
+            font = button_font,
             buttons = gears.table.join(
                 awful.button(
                     {},
@@ -67,7 +69,7 @@ client.connect_signal(
         local max_button =
             wibox.widget {
             text = "",
-            font = "CaskaydiaCove Nerd Font Mono 15",
+            font = button_font,
             buttons = gears.table.join(
                 awful.button(
                     {},
@@ -82,7 +84,7 @@ client.connect_signal(
             widget = wibox.widget.textbox
         }
 
-        awful.titlebar(c, {size = dpi(24)}):setup {
+        awful.titlebar(c, {size = dpi(22)}):setup {
             {
                 {
                     close_button,
@@ -92,7 +94,7 @@ client.connect_signal(
                     spacing = dpi(6)
                 },
                 left = dpi(10),
-                bottom = dpi(4),
+                bottom = dpi(2),
                 widget = wibox.container.margin
             },
             {

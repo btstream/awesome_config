@@ -9,7 +9,7 @@ client.connect_signal(
     "manage",
     function(c)
         c.shape = function(cr, w, h)
-            gears.shape.rounded_rect(cr, w, h, 6)
+            gears.shape.rounded_rect(cr, w, h, dpi(3))
         end
 
         -- Set the windows at the slave,
