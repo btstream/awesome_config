@@ -13,7 +13,7 @@ theme.icon_theme = "Tela-Dark"
 -- }}}
 
 -- {{{ font
-theme.font = "sans 10"
+theme.font = "Libertinus Sans 10"
 -- }}}
 
 -- {{{ Colors
