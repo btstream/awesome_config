@@ -13,7 +13,7 @@ theme.icon_theme = "Tela-Dark"
 -- }}}
 
 -- {{{ font
-theme.font = "Libertinus Sans 10"
+theme.font = "sans 9"
 -- }}}
 
 -- {{{ Colors
@@ -43,7 +43,6 @@ theme.titlebar_bg_normal = "#242424"
 -- }}}
 
 -- {{{ taglist
-theme.taglist_font = "Linux Libertine G Bold 10"
 theme.taglist_fg_focus = theme.bg_urgent
 theme.taglist_bg_focus = "#82aaff"
 theme.taglist_fg_urgent = theme.bg_urgent
@@ -66,7 +65,7 @@ theme.tasklist_bg_indicator = "#303030"
 theme.tasklist_bg_indicator_focus = theme.taglist_bg_focus
 theme.tasklist_bg_indicator_urgent = theme.taglist_bg_urgent
 -- theme.tasklist_shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, 2) end
-theme.tasklist_font = "Libertinus Sans 10"
+theme.tasklist_font = "sans 9"
 -- }}}
 
 -- {{{ systray
