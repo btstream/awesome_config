@@ -122,6 +122,9 @@ ruled.client.append_rules({
                 "Doublecmd",
                 "pcmanfm-qt"
             },
+            name = {
+                "ranger"
+            }
         },
         properties = { screen = 1, tag = "4" }
     },

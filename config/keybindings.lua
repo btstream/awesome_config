@@ -3,6 +3,7 @@ local awful = require("awful")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local ruled = require("ruled")
+local naughty = require("naughty")
 
 modkey = "Mod4"
 
@@ -81,6 +82,32 @@ awful.keyboard.append_global_keybindings({
         end,
         {description = "open a terminal", group = "launcher"}
     ),
+
+    -- for ranger
+    awful.key(
+        {modkey, "Shift"},
+        "Return",
+        function()
+            -- if there is a ranger instance, goto the first instance's
+            -- tag, else create a new ranger instance on tag 4
+            local ranger_matcher = function(c) 
+                return ruled.client.match(c, {name = "ranger"})
+            end
+            local ranger_client = nil
+            for c in awful.client.iterate(ranger_matcher) do
+                ranger_client = c
+                break
+            end
+            -- get focused screen
+            if ranger_client ~= nil then
+                ranger_client:jump_to()
+            else
+                awful.spawn(terminal .. " -e ranger")
+            end
+        end,
+        {description = "open ranger filemanager", group = "launcher"}
+    ),
+
     awful.key({modkey, "Control"}, "r", awesome.restart, {description = "reload awesome", group = "awesome"}),
 
     awful.key(
