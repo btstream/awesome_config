@@ -83,7 +83,8 @@ awful.keyboard.append_global_keybindings({
         {description = "open a terminal", group = "launcher"}
     ),
 
-    -- for ranger
+    -- keybindings to start ranger and jump to newly started instance
+    -- if there exists an open instance then jump to it
     awful.key(
         {modkey, "Shift"},
         "Return",
@@ -102,7 +103,12 @@ awful.keyboard.append_global_keybindings({
             if ranger_client ~= nil then
                 ranger_client:jump_to()
             else
-                awful.spawn(terminal .. " -e ranger")
+                awful.spawn.easy_async_with_shell(terminal .. " -e ranger", function()
+                    for c in awful.client.iterate(ranger_matcher) do
+                        c:jump_to()
+                        break
+                    end
+                end)
             end
         end,
         {description = "open ranger filemanager", group = "launcher"}
