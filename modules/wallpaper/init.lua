@@ -2,8 +2,7 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local bingwallpaper = require("modules.wallpaper.bingwallpaper")
 local naughty = require("naughty")
-
--- use_bing_wallpapper = true 
+local awful = require("awful")
 
 local set_wallpaper = function(s)
     if use_bing_wallpapper then
@@ -15,6 +14,7 @@ local set_wallpaper = function(s)
                 wallpaper = wallpaper(s)
             end
             gears.wallpaper.maximized(wallpaper, s, true)
+            awful.spawn.with_shell("betterlockscreen -u " .. wallpaper)
         end
     end
 end

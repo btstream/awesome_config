@@ -8,7 +8,7 @@ local gears = require("gears")
 
 -- {{{ Main
 local theme = {}
-theme.wallpaper = themes_path .. "material_darker/background.png"
+theme.wallpaper = wallpaper or themes_path .. "material_darker/background.png"
 theme.icon_theme = "Tela-Dark"
 -- }}}
 

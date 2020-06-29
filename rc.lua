@@ -14,21 +14,11 @@ local naughty = require("naughty")
 
 -- {{{ load custom variables and set default if not set
 pcall(require, "custom_variables")
-if terminal == nil then
-    terminal = "urxvtc"
-end
-if editor == nil then
-    editor = os.getenv("EDITOR") or "nvim"
-end
-if editor_cmd == nil then
-    editor_cmd = terminal .. " -e " .. editor
-end
-if use_bing_wallpapper == nil then
-    use_bing_wallpapper = false
-end
-if use_title_bar == nil then
-    use_title_bar = false
-end
+terminal = terminal or "urxvtc"
+editor = editor or (os.getenv("EDITOR") or "nvim")
+editor_cmd = editor_cmd or terminal .. "-e" .. editor
+use_bing_wallpapper = use_bing_wallpapper or false
+use_title_bar = use_title_bar or false
 -- }}}
 
 -- {{{ load themes

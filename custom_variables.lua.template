@@ -2,4 +2,5 @@ terminal = "urxvtc"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 use_bing_wallpapper = false
+wallpaper = "~/.config/awesome/themes/material_darker/background.png"
 use_title_bar = true
