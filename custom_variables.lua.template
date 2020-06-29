@@ -1,0 +1,5 @@
+terminal = "urxvtc"
+editor = os.getenv("EDITOR") or "nvim"
+editor_cmd = terminal .. " -e " .. editor
+use_bing_wallpapper = false
+use_title_bar = true

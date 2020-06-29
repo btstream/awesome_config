@@ -3,10 +3,12 @@ local beautiful = require("beautiful")
 local bingwallpaper = require("modules.wallpaper.bingwallpaper")
 local naughty = require("naughty")
 
-use_bing_wallpapper = true 
+-- use_bing_wallpapper = true 
 
 local set_wallpaper = function(s)
-    if not use_bing_wallpapper then
+    if use_bing_wallpapper then
+        bingwallpaper.set_wallpaper(s)
+    else
         if beautiful.wallpaper then
             local wallpaper = beautiful.wallpaper
             if type(wallpaper) == "function" then
@@ -14,8 +16,6 @@ local set_wallpaper = function(s)
             end
             gears.wallpaper.maximized(wallpaper, s, true)
         end
-    else
-        bingwallpaper.set_wallpaper(s)
     end
 end
 

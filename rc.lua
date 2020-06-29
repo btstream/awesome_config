@@ -12,15 +12,27 @@ local dpi = require("beautiful.xresources").apply_dpi
 require("error_check")
 local naughty = require("naughty")
 
--- {{{ load themes
-beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/material_darker/theme.lua")
+-- {{{ load custom variables and set default if not set
+pcall(require, "custom_variables")
+if terminal == nil then
+    terminal = "urxvtc"
+end
+if editor == nil then
+    editor = os.getenv("EDITOR") or "nvim"
+end
+if editor_cmd == nil then
+    editor_cmd = terminal .. " -e " .. editor
+end
+if use_bing_wallpapper == nil then
+    use_bing_wallpapper = false
+end
+if use_title_bar == nil then
+    use_title_bar = false
+end
 -- }}}
 
--- {{{ global configs
-terminal = "urxvtc"
-editor = os.getenv("EDITOR") or "nvim"
-editor_cmd = terminal .. " -e " .. editor
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+-- {{{ load themes
+beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/material_darker/theme.lua")
 -- }}}
 
 -- {{{ setup layouts
@@ -39,7 +51,9 @@ screen.connect_signal("request::desktop_decoration",
     end
 )
 -- setup titlebar
-require("modules.titlebar")
+if use_title_bar then
+    require("modules.titlebar")
+end
 -- }}}
 
 -- {{{ setup mouse and keybindings
@@ -47,8 +61,10 @@ require("config.mouse")
 require("config.keybindings")
 -- }}}
 
+-- {{{ rules and signals
 require("config.rules")
 require("config.signals")
+-- }}}
 
 -- {{{ autostartup
 awful.spawn.with_shell("~/.config/awesome/scripts/autorun.sh")
