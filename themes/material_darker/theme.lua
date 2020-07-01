@@ -28,7 +28,7 @@ theme.bg_urgent = theme.bg_normal
 -- {{{ Borders for client
 theme.useless_gap = dpi(2.5)
 -- theme.gap_single_client = false
-theme.border_width = dpi(1)
+theme.border_width = dpi(2)
 theme.border_normal = theme.bg_normal
 -- for using title bar
 if use_title_bar then
@@ -38,6 +38,8 @@ else
     -- for not using title bar
     theme.border_focus = "#82aaff"
     theme.border_marked = theme.border_focus
+    theme.border_active = theme.border_focus
+    theme.border_normal = theme.bg_focus
     theme.border_urgent = theme.fg_urgent
 end
 -- }}}
