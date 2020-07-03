@@ -78,7 +78,7 @@ awful.keyboard.append_global_keybindings({
         {modkey},
         "Return",
         function()
-            awful.spawn(terminal)
+            awful.spawn(terminal_cmd)
         end,
         {description = "open a terminal", group = "launcher"}
     ),

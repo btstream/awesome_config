@@ -1,4 +1,5 @@
 terminal = "urxvtc"
+terminal_cmd = "urxvtc -e tmux"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 use_bing_wallpapper = false

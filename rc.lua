@@ -15,6 +15,7 @@ local naughty = require("naughty")
 -- {{{ load custom variables and set default if not set
 pcall(require, "custom_variables")
 terminal = terminal or "urxvtc"
+terminal_cmd = terminal_cmd or terminal
 editor = editor or (os.getenv("EDITOR") or "nvim")
 editor_cmd = editor_cmd or terminal .. "-e" .. editor
 use_bing_wallpapper = use_bing_wallpapper or false
