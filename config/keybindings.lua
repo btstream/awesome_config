@@ -89,21 +89,18 @@ awful.keyboard.append_global_keybindings({
         {modkey, "Shift"},
         "Return",
         function()
-            -- if there is a ranger instance, goto the first instance's
-            -- tag, else create a new ranger instance on tag 4
             local ranger_matcher = function(c) 
-                return ruled.client.match(c, {name = "ranger"})
+                return c.name == 'ranger'
             end
             local ranger_client = nil
             for c in awful.client.iterate(ranger_matcher) do
                 ranger_client = c
                 break
             end
-            -- get focused screen
             if ranger_client ~= nil then
                 ranger_client:jump_to()
             else
-                awful.spawn.easy_async_with_shell(terminal .. " -e ranger", function()
+                awful.spawn.easy_async_with_shell(terminal .. " -t ranger -e ranger", function()
                     for c in awful.client.iterate(ranger_matcher) do
                         c:jump_to()
                         break
