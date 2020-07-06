@@ -100,12 +100,7 @@ awful.keyboard.append_global_keybindings({
             if ranger_client ~= nil then
                 ranger_client:jump_to()
             else
-                awful.spawn.easy_async_with_shell(terminal .. " -t ranger -e ranger", function()
-                    for c in awful.client.iterate(ranger_matcher) do
-                        c:jump_to()
-                        break
-                    end
-                end)
+                awful.spawn.with_shell(terminal .. " -t ranger -e ranger")
             end
         end,
         {description = "open ranger filemanager", group = "launcher"}

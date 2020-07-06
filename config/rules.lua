@@ -126,7 +126,7 @@ ruled.client.append_rules({
                 "ranger"
             }
         },
-        properties = { screen = 1, tag = "4" }
+        properties = { screen = 1, tag = "4", switch_to_tags = true }
     },
 
     -- all document processors to workspace5
