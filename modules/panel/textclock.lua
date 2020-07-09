@@ -38,7 +38,7 @@ function textclock.setup()
         },
         style_weekday = {
             border_width = dpi(1),
-            border_color = beautiful.taglist_shape_border_color
+            border_color = beautiful.taglist_shape_border_color,
         },
         style_focus = {
             fg_color = beautiful.bg_normal,
