@@ -72,8 +72,8 @@ theme.tasklist_bg_normal = theme.bg_normal
 theme.tasklist_bg_focus = theme.bg_normal
 theme.tasklist_fg_urgent = theme.fg_normal
 -- theme.tasklist_bg_indicator = "#303030"
-theme.tasklist_bg_indicator_focus = theme.bg_normal
-theme.tasklist_bg_indicator_urgent = theme.bg_normal
+theme.tasklist_bg_indicator_focus = theme.taglist_bg_focus
+theme.tasklist_bg_indicator_urgent = theme.taglist_bg_urgent
 -- theme.tasklist_shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, 2) end
 theme.tasklist_font = "sans 9"
 -- }}}
