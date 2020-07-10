@@ -25,8 +25,8 @@ function textclock.setup()
         opacity = 0.8,
         font = beautiful.calendar_font,
         style_normal = {
-            border_width = dpi(1),
-            border_color = beautiful.taglist_shape_border_color,
+            -- border_width = dpi(1),
+            border_color = beautiful.tasklist_shape_border_color,
             padding = dpi(10)
         },
         style_month = {
