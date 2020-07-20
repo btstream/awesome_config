@@ -173,7 +173,7 @@ ruled.client.append_rules({
                 "wechat.exe"
             },
         },
-        properties = { screen = 1, tag = "9", floating = true, border_width = 0, placement = awful.placement.centered }
+        properties = { screen = 1, tag = "9", floating = true}
     },
 })
 -- }}}
